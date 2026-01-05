@@ -13,7 +13,7 @@ const PricingCard = ({Price,Monthly,Title,FeatureList}) => {
             </div>
             <svg width="120" height="94" viewBox="0 0 120 94" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M10 0H110L120 15H0L10 0Z" fill="#010F34"/>
-              <path d="M13 0H106V79L59.5 94L13 79V0Z" fill="#FF5500"/>
+              <path d="M13 0H106V79L59.5 94L13 79V0Z" fill="#e26d26"/>
             </svg>       
           </div>
           <h2 className="cs_pricing_plan_heading mb-0 cs_fs_20 cs_medium">{Title}</h2>
