@@ -14,92 +14,35 @@ export default function Nav({ setMobileToggle }) {
               </Link>
             </li>
             <li>
-              <Link href="/home2" onClick={() => setMobileToggle(false)}>
-                Home V2
-              </Link>
-            </li>
-            <li>
               <Link href="/home3" onClick={() => setMobileToggle(false)}>
                 Home V3
               </Link>
             </li>
           </ul>
         </DropDown>
-      </li>
-      <li>
-        <Link href="/about" onClick={() => setMobileToggle(false)}>
-          About
-        </Link>
-      </li>
-      <li className="menu-item-has-children">
-        <Link href="/service" onClick={() => setMobileToggle(false)}>
-          Services
-        </Link>
-        <DropDown>
-          <ul>
-            <li>
-              <Link href="/service" onClick={() => setMobileToggle(false)}>
-                Services
-              </Link>
-            </li>
-            <li>
-              <Link href="/service/service-details" onClick={() => setMobileToggle(false)}>
-                Service Details
-              </Link>
-            </li>
-          </ul>
-        </DropDown>
-
-      </li>      
+      </li>   
       <li className="menu-item-has-children">
         <Link href="#">Pages</Link>
         <DropDown>
           <ul>
             <li>
-              <Link href="/team" onClick={() => setMobileToggle(false)}>
-                Team
+              <Link href="/about3" onClick={() => setMobileToggle(false)}>
+                About 3
               </Link>
             </li>
             <li>
-              <Link href="/team/team-details" onClick={() => setMobileToggle(false)}>
-                Team Details
+              <Link href="/service3" onClick={() => setMobileToggle(false)}>
+                Services 3
               </Link>
             </li>
             <li>
-              <Link href="/project" onClick={() => setMobileToggle(false)}>
-                Project
+              <Link href="/service" onClick={() => setMobileToggle(false)}>
+                Services
               </Link>
             </li>
-            <li>
-              <Link href="/project/project-details" onClick={() => setMobileToggle(false)}>
-                 Project Details
-              </Link>
-            </li>            
           </ul>
         </DropDown>
       </li>
-      {/* <li className="menu-item-has-children">
-        <Link href="/blog" onClick={() => setMobileToggle(false)}>
-          Blog
-        </Link>
-        <DropDown>
-          <ul>
-            <li>
-              <Link href="/blog" onClick={() => setMobileToggle(false)}>
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/blog/blog-details"
-                onClick={() => setMobileToggle(false)}
-              >
-                Blog Details
-              </Link>
-            </li>
-          </ul>
-        </DropDown>
-      </li> */}
       <li>
         <Link href="/contact" onClick={() => setMobileToggle(false)}>
           Contact
