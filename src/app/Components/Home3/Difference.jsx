@@ -2,6 +2,7 @@
 import React from 'react';
 import { UserCheck, CheckCircle, AlertTriangle, X } from 'lucide-react';
 import Image from 'next/image';
+import SectionIcon from './Common/SectionIcon';
 
 const Difference = () => {
   return (
@@ -9,7 +10,7 @@ const Difference = () => {
       <div className="container py-5">
         <div className="text-center mb-5">
           <h2 className="h3_section_title font-bold text-slate-900 mb-3 d-flex align-items-center justify-content-center gap-2">
-            <Image src="/assets/img/icons/fan.svg" alt="" className="cs_section_subheading_icon" width={24} height={24} />
+            <SectionIcon size={24} />
             The Resolute Difference
           </h2>
           <p className="fs-5 text-slate-600 max-w-2xl mx-auto">What you'll get that other corporate companies won't give you.</p>

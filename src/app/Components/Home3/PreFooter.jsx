@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
 import { Flame } from 'lucide-react';
-import Image from 'next/image';
+import SectionIcon from './Common/SectionIcon';
 
 const PreFooter = () => {
   return (
@@ -24,7 +24,7 @@ const PreFooter = () => {
             
             <div className="space-y-4 flex flex-col md:align-items-start align-items-center">
               <p className="text-white font-bold text-xl uppercase tracking-tight mb-2 text-center md:text-left d-flex align-items-center gap-2 justify-content-center md:justify-content-start">
-                <Image src="/assets/img/icons/fan.svg" alt="" className="cs_section_subheading_icon" width={20} height={20} />
+                <SectionIcon size={20} />
                 Ready for Honest HVAC Service?
               </p>
               <div className="flex flex-col md:flex-row gap-4">

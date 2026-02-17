@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
 import { CheckCircle, X } from 'lucide-react';
-import Image from 'next/image';
+import SectionIcon from './Common/SectionIcon';
 
 const ServiceArea = () => {
   return (
@@ -10,7 +10,7 @@ const ServiceArea = () => {
         <div className="row g-5">
           <div className="col-lg-6">
             <h3 className="fs-2 font-bold mb-4 text-white d-flex align-items-center gap-2">
-                <Image src="/assets/img/icons/fan.svg" alt="" className="cs_section_subheading_icon" width={24} height={24} />
+                <SectionIcon size={24} />
                 Serving the Wasatch Front
             </h3>
             <div className="space-y-6">
