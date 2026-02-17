@@ -1,6 +1,7 @@
 "use client"
 import React from 'react';
 import { CheckCircle, X } from 'lucide-react';
+import Image from 'next/image';
 
 const ServiceArea = () => {
   return (
@@ -8,7 +9,10 @@ const ServiceArea = () => {
       <div className="container py-5">
         <div className="row g-5">
           <div className="col-lg-6">
-            <h3 className="fs-2 font-bold mb-4 text-white">Serving the Wasatch Front</h3>
+            <h3 className="fs-2 font-bold mb-4 text-white d-flex align-items-center gap-2">
+                <Image src="/assets/img/icons/fan.svg" alt="" className="cs_section_subheading_icon" width={24} height={24} />
+                Serving the Wasatch Front
+            </h3>
             <div className="space-y-6">
               <p className="text-slate-400 fs-5">We provide expert service to homeowners in these counties with <span className="text-white font-bold text-decoration-underline decoration-orange-500">no long-distance fees:</span></p>
               <div className="row g-3">

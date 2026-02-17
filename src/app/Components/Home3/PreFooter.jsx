@@ -1,8 +1,9 @@
 "use client"
 import React from 'react';
 import { Flame } from 'lucide-react';
+import Image from 'next/image';
 
-const CTASection = () => {
+const PreFooter = () => {
   return (
     <section className="bg-slate-950 text-slate-400 py-20 relative z-index-2">
         <div className="max-w-7xl mx-auto px-4">
@@ -22,7 +23,10 @@ const CTASection = () => {
             </div>
             
             <div className="space-y-4 flex flex-col md:align-items-start align-items-center">
-              <p className="text-white font-bold text-xl uppercase tracking-tight mb-2 text-center md:text-left">Ready for Honest HVAC Service?</p>
+              <p className="text-white font-bold text-xl uppercase tracking-tight mb-2 text-center md:text-left d-flex align-items-center gap-2 justify-content-center md:justify-content-start">
+                <Image src="/assets/img/icons/fan.svg" alt="" className="cs_section_subheading_icon" width={20} height={20} />
+                Ready for Honest HVAC Service?
+              </p>
               <div className="flex flex-col md:flex-row gap-4">
                 <a href="tel:8019705797" className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg shadow-orange-600/20 uppercase tracking-widest text-sm text-decoration-none d-inline-block hover-scale">
                   Schedule Service Now
@@ -38,4 +42,4 @@ const CTASection = () => {
   );
 };
 
-export default CTASection;
+export default PreFooter;

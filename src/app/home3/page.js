@@ -4,7 +4,7 @@ import Services from "../Components/Home3/Services";
 import Testimonial from "../Components/Home3/Testimonial";
 import EmergencyBanner from "../Components/Home3/EmergencyBanner";
 import ServiceArea from "../Components/Home3/ServiceArea";
-import CTASection from "../Components/Home3/CTASection";
+import PreFooter from "../Components/Home3/PreFooter";
 
 export const metadata = {
   title: "Home 3 | Resolute Heating & Air",
@@ -20,7 +20,7 @@ export default function Home3() {
       <Testimonial />
       <EmergencyBanner />
       <ServiceArea />
-      <CTASection />
+      <PreFooter />
     </main>
   );
 }

@@ -1,6 +1,7 @@
 "use client"
 import React from 'react';
 import { Star, MapPin, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 
 const Testimonial = () => {
     const testimonials = [
@@ -28,7 +29,10 @@ const Testimonial = () => {
     <section className="py-24 bg-white overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-             <h2 className="text-4xl font-bold mb-4">Real Reviews from Real Neighbors</h2>
+             <h2 className="text-4xl font-bold mb-4 d-flex align-items-center justify-content-center gap-2">
+                <Image src="/assets/img/icons/fan.svg" alt="" className="cs_section_subheading_icon" width={28} height={28} />
+                Real Reviews from Real Neighbors
+             </h2>
              <p className="text-slate-600 font-medium italic">Average Rating: 5.0 Stars based on recent work</p>
           </div>
 

@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { ThermometerSnowflake, Flame, Construction, Wrench, Volume2, ChevronRight } from 'lucide-react';
 import loadBackgroudImages from "../Common/loadBackgroudImages";
+import Image from 'next/image';
 
 const Services = () => {
   useEffect(() => {
@@ -51,7 +52,10 @@ const Services = () => {
        <div className="container py-5">
           <div className="d-flex flex-column flex-md-row align-items-md-end justify-content-between mb-5 gap-4">
             <div>
-              <h2 className="fs-2 font-bold text-slate-900 mb-3">Common HVAC Problems We Solve</h2>
+              <h2 className="fs-2 font-bold text-slate-900 mb-3 d-flex align-items-center gap-2">
+                <Image src="/assets/img/icons/fan.svg" alt="" className="cs_section_subheading_icon" width={24} height={24} />
+                Common HVAC Problems We Solve
+              </h2>
               <p className="fs-5 text-slate-600 mb-0">Fast solutions for Utah's unpredictable weather.</p>
             </div>
             <button className="h3_btn_outline bg-white border border-slate-200 text-slate-700 px-4 py-3 rounded-xl font-semibold hover:bg-slate-100 transition-colors">

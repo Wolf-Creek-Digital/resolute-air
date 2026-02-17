@@ -7736,3 +7736,16 @@ label {
     .md\:align-items-baseline { align-items: baseline !important; }
     .md\:align-items-stretch { align-items: stretch !important; }
 }
+
+/* Fan Icon Animation */
+@keyframes cs_spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.cs_section_subheading_icon {
+    animation: cs_spin 10s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
