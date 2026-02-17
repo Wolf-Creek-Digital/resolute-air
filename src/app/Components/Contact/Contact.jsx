@@ -1,79 +1,445 @@
-import React from 'react';
-import ContactCard from '../ContactCard/ContactCard';
-import Form3 from '../Form/Form3';
+"use client";
+import React, { useState } from 'react';
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Flame,
+  User,
+  Map,
+  Building,
+  MessageSquare,
+  Send,
+  Calendar,
+  ChevronRight,
+  Star,
+  UserCheck,
+  X,
+  Check,
+  ArrowRight
+} from 'lucide-react';
 
 const Contact = () => {
+    const [activeFaq, setActiveFaq] = useState(null);
+
+    const serviceAreas = [
+        { county: "Salt Lake County", cities: "Salt Lake City, West Jordan, Sandy, Draper, South Jordan, Herriman, Riverton, Taylorsville, Murray, West Valley City" },
+        { county: "Utah County", cities: "Lehi, American Fork, Highland, Alpine, Saratoga Springs, Eagle Mountain" },
+        { county: "Davis County", cities: "Bountiful, Centerville, Farmington, Kaysville, Layton" },
+        { county: "Summit / Wasatch", cities: "Park City, Heber City, Midway (Trip charge may apply)" }
+    ];
+    
+    const faqs = [
+        { q: "What areas do you service?", a: "We primarily serve Salt Lake County and surrounding areas including Utah County, Davis County, and Summit County." },
+        { q: "Do you offer free estimates?", a: "Yes, we offer free estimates for new system installations and replacements. For repairs, we have a standard diagnostic fee enabling us to identify the exact issue." },
+        { q: "Are you licensed and insured?", a: "Absolutely. We are fully licensed within the State of Utah and carry comprehensive liability insurance for your peace of mind." },
+        { q: "What brands do you service?", a: "We service all major makes and models of HVAC equipment, including Carrier, Trane, Lennox, Rheem, York, and more." }
+    ];
+
     return (
         <div className="contact-page">
-            <section>
-                <div className="cs_height_120 cs_height_lg_80"></div>
-                <div className="container">
-                    <div className="row cs_gap_y_50">
-                    <div className="col-xxl-6 col-lg-7">
-                        <h2 className="cs_fs_48 cs_semibold cs_mb_22">Contact Information</h2>
-                        <p className="cs_mb_30">Our QuickCool Installation service provides fast and efficient installation of new air conditioning units. Our certified technicians will ensure your system is air an  installed correctly and safely,</p>
-                        <div className="row cs_gap_y_30 cs_row_gap_30">
-                        <ContactCard
-                            img="/assets/img/icons/contact_icon_1.svg"
-                            Title="Our Address"
-                            Content="6391 Elgin St. Celina, <br>Delaware 10299"
-                        >
-                        </ContactCard>
-                        <ContactCard
-                            img="/assets/img/icons/contact_icon_2.svg"
-                            Title="Phone Number"
-                            Content="+(163)-5565-0697 <br>(+578) 587 89168"
-                        >
-                        </ContactCard>
-                        <ContactCard
-                            img="/assets/img/icons/contact_icon_3.svg"
-                            Title="Email Address"
-                            Content="info@gmail.com <br>demo@gmail.com"
-                        >
-                        </ContactCard>
-                        <ContactCard
-                            img="/assets/img/icons/contact_icon_4.svg"
-                            Title="Working Time"
-                            Content="Work Time: Sun - Fri <br>10AM - 6PM"
-                        >
-                        </ContactCard>                        
+            <style jsx>{`
+                .bg-navy { background-color: #001d3d; }
+                .text-navy { color: #001d3d; }
+                .bg-orange { background-color: #ea580c; }
+                .text-orange { color: #ea580c; }
+                .border-orange { border-color: #ea580c; }
+                .bg-slate-50 { background-color: #f8fafc; }
+                .text-slate-400 { color: #94a3b8; }
+                .text-slate-600 { color: #475569; }
+                .border-slate-100 { border-color: #e2e8f0; }
+                .border-slate-200 { border-color: #cbd5e1; }
+                
+                .form-control:focus {
+                    border-color: #ea580c;
+                    box-shadow: none;
+                }
+                
+                .contact-card {
+                    transition: all 0.3s ease;
+                }
+                .contact-card:hover {
+                    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+                    background-color: white;
+                    border-color: transparent;
+                }
+                
+                .btn-submit {
+                    background-color: #ea580c;
+                    color: white;
+                    transition: all 0.3s ease;
+                }
+                .btn-submit:hover {
+                    background-color: #001d3d;
+                    color: white;
+                    transform: translateY(-2px);
+                }
+            `}</style>
+            
+            {/* Contact Info & Form Grid */}
+            <section className="py-5 bg-white">
+                <div className="container py-5">
+                    <div className="row g-5">
+                        
+                        {/* Left Column: Info */}
+                        <div className="col-lg-5">
+                            <div className="mb-5">
+                                <span className="text-orange fw-black text-uppercase small d-flex align-items-center gap-3 mb-3 fw-bold" style={{letterSpacing: '0.3em', fontSize: '10px'}}>
+                                    <div style={{width: '40px', height: '2px', backgroundColor: '#ea580c'}}></div> GET IN TOUCH
+                                </span>
+                                <h2 className="display-5 fw-black text-navy text-uppercase fst-italic lh-sm mb-4">
+                                    How to Reach Us
+                                </h2>
+                                <p className="text-secondary fw-medium lh-base">
+                                    Travis answers directly—no voicemail, no runaround. Whether it's a quote or an emergency, you talk to the technician.
+                                </p>
+                            </div>
+
+                            <div className="d-flex flex-column gap-4 mb-5">
+                                <div className="d-flex gap-4 p-4 bg-slate-50 rounded-4 border border-slate-100 contact-card">
+                                    <div className="bg-navy rounded-3 d-flex align-items-center justify-content-center text-orange flex-shrink-0 shadow" style={{width: '56px', height: '56px'}}>
+                                        <Phone size={24} />
+                                    </div>
+                                    <div>
+                                        <p className="small fw-black text-uppercase text-slate-400 mb-1" style={{fontSize: '10px', letterSpacing: '0.1em'}}>Call or Text</p>
+                                        <a href="tel:8019705797" className="h4 fw-black text-navy text-decoration-none fst-italic text-uppercase mb-0">801-970-5797</a>
+                                    </div>
+                                </div>
+
+                                <div className="d-flex gap-4 p-4 bg-slate-50 rounded-4 border border-slate-100 contact-card">
+                                    <div className="bg-orange rounded-3 d-flex align-items-center justify-content-center text-white flex-shrink-0 shadow" style={{width: '56px', height: '56px'}}>
+                                        <Mail size={24} />
+                                    </div>
+                                    <div>
+                                        <p className="small fw-black text-uppercase text-slate-400 mb-1" style={{fontSize: '10px', letterSpacing: '0.1em'}}>Email Us</p>
+                                        <a href="mailto:travis@resoluteair.com" className="h5 fw-black text-navy text-decoration-none mb-0">travis@resoluteair.com</a>
+                                    </div>
+                                </div>
+
+                                <div className="d-flex gap-4 p-4 bg-slate-50 rounded-4 border border-slate-100 contact-card">
+                                    <div className="bg-navy rounded-3 d-flex align-items-center justify-content-center text-orange flex-shrink-0 shadow" style={{width: '56px', height: '56px'}}>
+                                        <MapPin size={24} />
+                                    </div>
+                                    <div>
+                                        <p className="small fw-black text-uppercase text-slate-400 mb-1" style={{fontSize: '10px', letterSpacing: '0.1em'}}>Based in</p>
+                                        <p className="h5 fw-black text-navy text-uppercase mb-0">West Jordan, Utah</p>
+                                        <p className="small fw-bold text-slate-400 text-uppercase mt-1 mb-0" style={{fontSize: '11px'}}>Serving Salt Lake & surrounding counties</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="bg-navy p-5 rounded-5 text-white shadow-lg position-relative overflow-hidden">
+                                <h4 className="h6 fw-black text-uppercase mb-4 fst-italic border-bottom border-white border-opacity-10 pb-3" style={{letterSpacing: '0.1em'}}>Operating Hours</h4>
+                                <div className="d-flex flex-column gap-3 small fw-bold text-uppercase">
+                                    <div className="d-flex justify-content-between border-bottom border-white border-opacity-10 pb-2">
+                                        <span className="text-white-50">Emergency Service:</span>
+                                        <span className="text-orange fst-italic">24/7/365</span>
+                                    </div>
+                                    <div className="d-flex justify-content-between border-bottom border-white border-opacity-10 pb-2">
+                                        <span className="text-white-50">Regular Business:</span>
+                                        <span>Mon-Fri 8am-6pm</span>
+                                    </div>
+                                    <div className="d-flex justify-content-between">
+                                        <span className="text-white-50">Weekends:</span>
+                                        <span>By Appt (Fees apply)</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div className="cs_height_35 cs_height_lg_35"></div>
-                        <h3 className="cs_fs_24 cs_semibold cs_mb_10">Follow The Social Media:</h3>
-                        <p className="cs_mb_20">Ensure your AC system is ready for the hottest days with our Comfort Check Tune-Up</p>
-                        <div className="cs_social_btns cs_style_1 cs_type_1">
-                        <a href="#" className="cs_social_btn cs_center">
-                        <svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7.75391 8.625H5.70312V14.75H2.96875V8.625H0.726562V6.10938H2.96875V4.16797C2.96875 1.98047 4.28125 0.75 6.27734 0.75C7.23438 0.75 8.24609 0.941406 8.24609 0.941406V3.10156H7.125C6.03125 3.10156 5.70312 3.75781 5.70312 4.46875V6.10938H8.13672L7.75391 8.625Z" fill="#010F34"/>
-                                </svg>
-                        </a>
-                        <a href="#" className="cs_social_btn cs_center">
-                        <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.5508 2.90625C12.5508 3.04297 12.5508 3.15234 12.5508 3.28906C12.5508 7.08984 9.67969 11.4375 4.40234 11.4375C2.76172 11.4375 1.25781 10.9727 0 10.1523C0.21875 10.1797 0.4375 10.207 0.683594 10.207C2.02344 10.207 3.25391 9.74219 4.23828 8.97656C2.98047 8.94922 1.91406 8.12891 1.55859 6.98047C1.75 7.00781 1.91406 7.03516 2.10547 7.03516C2.35156 7.03516 2.625 6.98047 2.84375 6.92578C1.53125 6.65234 0.546875 5.50391 0.546875 4.10938V4.08203C0.929688 4.30078 1.39453 4.41016 1.85938 4.4375C1.06641 3.91797 0.574219 3.04297 0.574219 2.05859C0.574219 1.51172 0.710938 1.01953 0.957031 0.609375C2.37891 2.33203 4.51172 3.48047 6.89062 3.61719C6.83594 3.39844 6.80859 3.17969 6.80859 2.96094C6.80859 1.375 8.09375 0.0898438 9.67969 0.0898438C10.5 0.0898438 11.2383 0.417969 11.7852 0.992188C12.4141 0.855469 13.043 0.609375 13.5898 0.28125C13.3711 0.964844 12.9336 1.51172 12.332 1.86719C12.9062 1.8125 13.4805 1.64844 13.9727 1.42969C13.5898 2.00391 13.0977 2.49609 12.5508 2.90625Z" fill="#010F34"/>
-                                </svg>
-                        </a>
-                        <a href="#" className="cs_social_btn cs_center">
-                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M3.10938 13H0.566406V4.82422H3.10938V13ZM1.82422 3.73047C1.03125 3.73047 0.375 3.04688 0.375 2.22656C0.375 1.10547 1.57812 0.394531 2.5625 0.96875C3.02734 1.21484 3.30078 1.70703 3.30078 2.22656C3.30078 3.04688 2.64453 3.73047 1.82422 3.73047ZM12.5977 13H10.082V9.03516C10.082 8.07812 10.0547 6.875 8.74219 6.875C7.42969 6.875 7.23828 7.88672 7.23828 8.95312V13H4.69531V4.82422H7.12891V5.94531H7.15625C7.51172 5.31641 8.33203 4.63281 9.5625 4.63281C12.1328 4.63281 12.625 6.32812 12.625 8.51562V13H12.5977Z" fill="#010F34"/>
-                                </svg>
-                        </a>
-                        <a href="#" className="cs_social_btn cs_center">
-                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 3.40625C9.96875 3.40625 11.5938 5.03125 11.5938 7C11.5938 9 9.96875 10.5938 8 10.5938C6 10.5938 4.40625 9 4.40625 7C4.40625 5.03125 6 3.40625 8 3.40625ZM8 9.34375C9.28125 9.34375 10.3125 8.3125 10.3125 7C10.3125 5.71875 9.28125 4.6875 8 4.6875C6.6875 4.6875 5.65625 5.71875 5.65625 7C5.65625 8.3125 6.71875 9.34375 8 9.34375ZM12.5625 3.28125C12.5625 2.8125 12.1875 2.4375 11.7188 2.4375C11.25 2.4375 10.875 2.8125 10.875 3.28125C10.875 3.75 11.25 4.125 11.7188 4.125C12.1875 4.125 12.5625 3.75 12.5625 3.28125ZM14.9375 4.125C15 5.28125 15 8.75 14.9375 9.90625C14.875 11.0312 14.625 12 13.8125 12.8438C13 13.6562 12 13.9062 10.875 13.9688C9.71875 14.0312 6.25 14.0312 5.09375 13.9688C3.96875 13.9062 3 13.6562 2.15625 12.8438C1.34375 12 1.09375 11.0312 1.03125 9.90625C0.96875 8.75 0.96875 5.28125 1.03125 4.125C1.09375 3 1.34375 2 2.15625 1.1875C3 0.375 3.96875 0.125 5.09375 0.0625C6.25 0 9.71875 0 10.875 0.0625C12 0.125 13 0.375 13.8125 1.1875C14.625 2 14.875 3 14.9375 4.125ZM13.4375 11.125C13.8125 10.2188 13.7188 8.03125 13.7188 7C13.7188 6 13.8125 3.8125 13.4375 2.875C13.1875 2.28125 12.7188 1.78125 12.125 1.5625C11.1875 1.1875 9 1.28125 8 1.28125C6.96875 1.28125 4.78125 1.1875 3.875 1.5625C3.25 1.8125 2.78125 2.28125 2.53125 2.875C2.15625 3.8125 2.25 6 2.25 7C2.25 8.03125 2.15625 10.2188 2.53125 11.125C2.78125 11.75 3.25 12.2188 3.875 12.4688C4.78125 12.8438 6.96875 12.75 8 12.75C9 12.75 11.1875 12.8438 12.125 12.4688C12.7188 12.2188 13.2188 11.75 13.4375 11.125Z" fill="#010F34"/>
-                        </svg>
-                        </a>
+
+                        {/* Right Column: Form */}
+                        <div className="col-lg-7">
+                            <div className="bg-slate-50 p-5 rounded-5 border border-slate-100 shadow-sm position-relative h-100">
+                                <div className="position-absolute top-0 end-0 p-5 opacity-10 pe-none d-none d-md-block">
+                                    <Flame size={120} />
+                                </div>
+                                <div className="mb-5 text-center text-lg-start position-relative z-1">
+                                    <h3 className="h2 fw-black text-navy text-uppercase fst-italic mb-2">Request Service Online</h3>
+                                    <p className="small fw-bold text-slate-400 text-uppercase fst-italic" style={{letterSpacing: '0.1em'}}>Fast Response Guaranteed</p>
+                                </div>
+
+                                <form className="d-flex flex-column gap-4 position-relative z-1">
+                                    <div className="row g-4">
+                                        <div className="col-md-6">
+                                            <label className="small fw-black text-uppercase text-navy mb-2 d-flex align-items-center gap-2" style={{fontSize: '10px', letterSpacing: '0.1em'}}><User size={14}/> Your Name*</label>
+                                            <input type="text" className="form-control rounded-4 py-3 px-4 fw-bold text-secondary border-slate-200" placeholder="John Doe" />
+                                        </div>
+                                        <div className="col-md-6">
+                                            <label className="small fw-black text-uppercase text-navy mb-2 d-flex align-items-center gap-2" style={{fontSize: '10px', letterSpacing: '0.1em'}}><Phone size={14}/> Phone Number*</label>
+                                            <input type="text" className="form-control rounded-4 py-3 px-4 fw-bold text-secondary border-slate-200" placeholder="801-000-0000" />
+                                        </div>
+                                    </div>
+
+                                    <div className="row g-4">
+                                        <div className="col-md-6">
+                                            <label className="small fw-black text-uppercase text-navy mb-2 d-flex align-items-center gap-2" style={{fontSize: '10px', letterSpacing: '0.1em'}}><Mail size={14}/> Email*</label>
+                                            <input type="email" className="form-control rounded-4 py-3 px-4 fw-bold text-secondary border-slate-200" placeholder="email@example.com" />
+                                        </div>
+                                        <div className="col-md-6">
+                                            <label className="small fw-black text-uppercase text-navy mb-2 d-flex align-items-center gap-2" style={{fontSize: '10px', letterSpacing: '0.1em'}}><Map size={14}/> Address / City*</label>
+                                            <input type="text" className="form-control rounded-4 py-3 px-4 fw-bold text-secondary border-slate-200" placeholder="Salt Lake City, UT" />
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label className="small fw-black text-uppercase text-navy mb-2 d-flex align-items-center gap-2" style={{fontSize: '10px', letterSpacing: '0.1em'}}><Building size={14}/> What do you need help with?*</label>
+                                        <select className="form-select rounded-4 py-3 px-4 fw-bold text-secondary border-slate-200">
+                                            <option>Select a service</option>
+                                            <option>AC Not Cooling / AC Repair</option>
+                                            <option>Furnace Not Working / Furnace Repair</option>
+                                            <option>HVAC Installation (New System)</option>
+                                            <option>Ductwork (Basement or Addition)</option>
+                                            <option>Seasonal Tune-Up / Maintenance</option>
+                                            <option>Other (Describe below)</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <label className="small fw-black text-uppercase text-navy mb-3 d-block" style={{fontSize: '10px', letterSpacing: '0.1em'}}>Best way to contact you:</label>
+                                        <div className="d-flex flex-wrap gap-4">
+                                            {['Phone Call', 'Text Message', 'Email'].map(method => (
+                                                <div key={method} className="form-check">
+                                                    <input className="form-check-input" type="radio" name="contactMethod" id={`contact-${method}`} defaultChecked={method === 'Phone Call'} />
+                                                    <label className="form-check-label small fw-black text-uppercase text-secondary" htmlFor={`contact-${method}`} style={{fontSize: '11px'}}>
+                                                        {method}
+                                                    </label>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label className="small fw-black text-uppercase text-navy mb-2 d-flex align-items-center gap-2" style={{fontSize: '10px', letterSpacing: '0.1em'}}><MessageSquare size={14}/> Tell us about your project</label>
+                                        <textarea rows="4" className="form-control rounded-4 py-3 px-4 fw-bold text-secondary border-slate-200" placeholder="Explain your HVAC problem or project..."></textarea>
+                                    </div>
+
+                                    <div>
+                                        <label className="small fw-black text-uppercase text-navy mb-2 d-flex align-items-center gap-2" style={{fontSize: '10px', letterSpacing: '0.1em'}}><Calendar size={14}/> Preferred date/time (optional)</label>
+                                        <input type="text" className="form-control rounded-4 py-3 px-4 fw-bold text-secondary border-slate-200" placeholder="e.g. Next Tuesday morning" />
+                                    </div>
+
+                                    <button className="btn btn-submit py-3 rounded-4 fw-black text-uppercase w-100 d-flex align-items-center justify-content-center gap-2 shadow-lg" style={{letterSpacing: '0.2em'}}>
+                                        REQUEST SERVICE <Send size={18} />
+                                    </button>
+                                </form>
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-xxl-5 offset-xxl-1 col-lg-5">
-                        <Form3></Form3>
-                    </div>
                     </div>
                 </div>
-                <div className="cs_height_120 cs_height_lg_80"></div>
-                </section>
-                <div className="cs_map">
-                    <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3029.352306266146!2d-112.0010389!3d40.60004999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87528e55e5dd5193%3A0xb6b10c987e71c11c!2s8327%20Etude%20Dr%2C%20West%20Jordan%2C%20UT%2084088%2C%20EE.%20UU.!5e0!3m2!1ses!2sco!4v1767588394075!5m2!1ses!2sco" ></iframe>
+            </section>
+
+            {/* Process Flow - Step by Step */}
+            <section className="py-5 bg-navy text-white">
+                <div className="container py-5">
+                    <div className="text-center mb-5">
+                        <span className="text-orange fw-black text-uppercase small" style={{letterSpacing: '0.3em'}}>FOLLOWING UP</span>
+                        <h2 className="display-5 fw-black text-uppercase fst-italic mt-2 text-white">What Happens After You Contact Us?</h2>
+                    </div>
+
+                    <div className="row g-4 justify-content-start">
+                        {[
+                            { s: "01", t: "Fast Response", d: "We'll get back to you within 2-4 hours (usually faster)." },
+                            { s: "02", t: "Quick Questions", d: "We'll confirm details and schedule the right amount of time." },
+                            { s: "03", t: "Scheduling", d: "Convenient same-day or next-day appointments available." },
+                            { s: "04", t: "Confirmation", d: "You'll get a call or text before Travis arrives." },
+                            { s: "05", t: "On-Time Arrival", d: "Our goal is precision. We'll contact you if traffic hits." },
+                            { s: "06", t: "Honest Diagnosis", d: "Upfront pricing and options before any work starts." },
+                            { s: "07", t: "Quality Service", d: "Once approved, Travis gets straight to work." }
+                        ].map((step, i) => (
+                            <div key={i} className="col-md-6 col-lg-3">
+                                <div className="d-flex align-items-center gap-3 mb-3">
+                                    <span className="display-4 fw-black font-bold text-orange opacity-50">{step.s}</span>
+                                    <div className="flex-grow-1 border-top border-white border-opacity-10"></div>
+                                </div>
+                                <h5 className="h6 fw-black text-uppercase fst-italic mb-2">{step.t}</h5>
+                                <p className="text-white-50 fw-bold text-uppercase mb-0" style={{fontSize: '12px', letterSpacing: '0.05em'}}>{step.d}</p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
+            </section>
+
+            {/* Service Area Grid */}
+            <section className="py-5 bg-slate-50 overflow-hidden">
+                <div className="container py-5">
+                    <div className="row g-5 align-items-center">
+                        <div className="col-lg-6">
+                            <div className="mb-5">
+                                <span className="text-orange fw-black text-uppercase small d-flex align-items-center gap-3 mb-3" style={{letterSpacing: '0.3em', fontSize: '10px'}}>
+                                    <div style={{width: '40px', height: '2px', backgroundColor: '#ea580c'}}></div> NORTHERN UTAH
+                                </span>
+                                <h2 className="display-5 fw-black text-navy text-uppercase fst-italic lh-sm mb-4">Service Areas</h2>
+                                <p className="text-secondary fw-medium">Providing honest HVAC care to families across the Wasatch Front with no long-distance fees in our primary zone.</p>
+                            </div>
+                            
+                            <div className="row g-3">
+                                {serviceAreas.map((area, i) => (
+                                    <div key={i} className="col-12">
+                                        <div className="bg-white p-4 rounded-4 shadow-sm border border-slate-100 h-100">
+                                            <h5 className="fw-black text-navy text-uppercase small mb-2 border-bottom pb-2">{area.county}</h5>
+                                            <p className="small text-slate-400 fw-bold text-uppercase mb-0" style={{fontSize: '10px', letterSpacing: '0.1em'}}>{area.cities}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="col-lg-6">
+                            <div className="bg-navy p-5 rounded-5 text-white shadow-lg position-relative overflow-hidden d-flex flex-column justify-content-center text-center h-100" style={{minHeight: '500px'}}>
+                                <div className="position-relative z-1 d-flex flex-column gap-4 align-items-center">
+                                    <MapPin size={64} className="text-orange" />
+                                    <h3 className="h2 fw-black text-uppercase fst-italic">Outside These Areas?</h3>
+                                    <p className="text-white-50 fs-5 fw-medium mx-auto" style={{maxWidth: '300px'}}>
+                                        We're happy to help! A long-distance service charge may apply. 
+                                    </p>
+                                    <div className="bg-white bg-opacity-10 border border-white border-opacity-10 p-4 rounded-4">
+                                        <p className="small fw-black text-uppercase opacity-75 mb-1" style={{fontSize: '10px', letterSpacing: '0.2em'}}>Confirm Availability</p>
+                                        <p className="h3 fw-black fst-italic mb-0">801-970-5797</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            {/* Comparison: Local vs National */}
+            <section className="py-5 bg-white position-relative">
+                <div className="container py-5">
+                    <div className="text-center mb-5">
+                        <h2 className="display-5 fw-black text-navy text-uppercase font-bold">Why Choose a Local HVAC Contractor?</h2>
+                        <p className="text-slate-400 fw-bold text-uppercase small mt-3" style={{letterSpacing: '0.2em'}}>Resolute vs. National Chains</p>
+                    </div>
+
+                    <div className="row g-5">
+                        <div className="col-lg-6">
+                            <div className="p-5 rounded-5 bg-slate-50 border border-slate-100 h-100">
+                                <div className="d-flex align-items-center gap-3 text-slate-400 mb-4 border-bottom border-slate-200 pb-3">
+                                    <Building size={32} />
+                                    <span className="fw-black text-uppercase small" style={{letterSpacing: '0.1em'}}>National Corporations</span>
+                                </div>
+                                <ul className="d-flex flex-column gap-3 list-unstyled mb-0">
+                                    {[
+                                        "Talk to a call center (not the tech)",
+                                        "Get whoever is available (random guy)",
+                                        "Pay for their massive advertising & overhead",
+                                        "Deal with rigid corporate policies"
+                                    ].map((item, i) => (
+                                        <li key={i} className="d-flex gap-3 small fw-black text-uppercase text-slate-400 fst-italic">
+                                            <X size={16} className="text-danger flex-shrink-0" /> {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="col-lg-6">
+                            <div className="p-5 rounded-5 bg-navy text-white shadow-lg position-relative overflow-hidden h-100 border-bottom border-orange border-5">
+                                <div className="d-flex align-items-center gap-3 text-orange mb-4 border-bottom border-white border-opacity-10 pb-3">
+                                    <UserCheck size={32} />
+                                    <span className="fw-black text-uppercase small" style={{letterSpacing: '0.1em'}}>Resolute Heating & Air</span>
+                                </div>
+                                <ul className="d-flex flex-column gap-3 list-unstyled position-relative z-1 mb-4">
+                                    {[
+                                        "Talk directly to Travis (the guy on site)",
+                                        "Same experienced technician every time",
+                                        "Pay for quality work, not overhead",
+                                        "Work with a neighbor who lives here"
+                                    ].map((item, i) => (
+                                        <li key={i} className="d-flex gap-3 small fw-black text-uppercase text-white fst-italic">
+                                            <Check size={16} className="text-orange flex-shrink-0" /> {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <div className="p-4 bg-white bg-opacity-10 rounded-3 fst-italic small fw-medium text-white-50">
+                                    "We're your neighbors. Travis is based out of West Jordan and runs into customers at the store. That local accountability keeps us honest."
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Review Spotlight */}
+            <section className="py-5 bg-slate-50 position-relative">
+                <div className="container py-5 text-center">
+                    <div className="d-flex justify-content-center gap-1 mb-4">
+                        {[...Array(5)].map((_, i) => <Star key={i} className="text-warning fill-warning" size={24} />)}
+                    </div>
+                    <h2 className="display-6 fw-black text-navy text-uppercase font-bold mb-5">Don't Just Take Our Word For It</h2>
+                    
+                    <div className="bg-white p-5 rounded-5 shadow-sm border border-slate-100 position-relative mx-auto" style={{maxWidth: '900px'}}>
+                        
+                        <p className="fs-4 text-secondary fw-medium fst-italic lh-base position-relative z-1 mb-5">
+                            "Travis is such an awesome guy. He is solid. Fixed my HVAC when it wouldn't turn on. He solved it quick and kept his time costs low. Use him if you want someone you trust in your own home. I would 1000% use him again!"
+                        </p>
+                        <div className="d-flex flex-column align-items-center">
+                            <p className="small fw-black text-navy text-uppercase mb-3 fst-italic" style={{letterSpacing: '0.1em'}}>Emergency Repair Customer</p>
+                            {/* <button className="btn btn-link text-decoration-none d-flex align-items-center gap-2 small fw-black text-uppercase text-orange p-0" style={{fontSize: '11px', letterSpacing: '0.2em'}}>
+                                READ ALL REVIEWS ON GOOGLE <ArrowRight size={14} />
+                            </button> */}
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            {/* FAQ Section */}
+            <section className="py-5 bg-white">
+                <div className="container py-5" style={{maxWidth: '800px'}}>
+                    <div className="text-center mb-5">
+                        <span className="text-orange fw-black text-uppercase small" style={{letterSpacing: '0.3em'}}>ANSWERS</span>
+                        <h2 className="display-4 fw-black text-navy text-uppercase fst-italic mt-2">Frequently Asked Questions</h2>
+                    </div>
+
+                    <div className="d-flex flex-column gap-3">
+                        {faqs.map((faq, i) => (
+                            <div key={i} className="bg-slate-50 rounded-4 overflow-hidden border border-slate-100">
+                                <button 
+                                    onClick={() => setActiveFaq(activeFaq === i ? null : i)}
+                                    className="w-100 d-flex justify-content-between align-items-center p-4 text-start border-0 bg-transparent shadow-none"
+                                >
+                                    <span className="fw-black text-navy text-uppercase small" style={{letterSpacing: '-0.025em'}}>{faq.q}</span>
+                                    <div className={`rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 transition-all ${activeFaq === i ? 'bg-orange text-white' : 'bg-white text-navy shadow-sm'}`} style={{width: '40px', height: '40px', transform: activeFaq === i ? 'rotate(180deg)' : ''}}>
+                                        <ChevronRight size={20} className={activeFaq === i ? 'rotate-90' : ''} style={{transition: 'transform 0.3s'}} />
+                                    </div>
+                                </button>
+                                <div className={`overflow-hidden transition-all ${activeFaq === i ? 'd-block' : 'd-none'}`}>
+                                    <div className="p-4 pt-0 text-secondary fw-bold small border-top border-slate-200 lh-base text-uppercase">
+                                        {faq.a}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Ready CTA */}
+            <section className="py-5 bg-orange position-relative overflow-hidden">
+                <div className="container py-5 text-center position-relative z-1">
+                    <h2 className="display-3 fw-black text-white text-uppercase fst-italic mb-5 lh-sm">
+                        Ready to Schedule <br/> Honest HVAC Service?
+                    </h2>
+                    <div className="d-flex flex-column flex-md-row justify-content-center align-items-center gap-4">
+                        <button className="btn btn-navy text-white px-5 py-4 rounded-4 fw-black text-uppercase shadow-lg" style={{letterSpacing: '0.2em', fontSize: '12px'}}>
+                            Schedule Now
+                        </button>
+                        <div className="d-flex align-items-center gap-4 text-white group cursor-pointer">
+                            <div className="d-flex align-items-center justify-content-center rounded-circle border border-white border-opacity-25 bg-white bg-opacity-10 shadow" style={{width: '70px', height: '70px'}}>
+                                <Phone size={32} fill="currentColor" />
+                            </div>
+                            <div className="text-start lh-1">
+                                <p className="small fw-black text-white-50 text-uppercase mb-2 fst-italic" style={{letterSpacing: '0.2em', fontSize: '10px'}}>Direct Call or Text</p>
+                                <p className="display-6 fw-black text-white fst-italic mb-0">801-970-5797</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div className="cs_map">
+                <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3029.352306266146!2d-112.0010389!3d40.60004999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87528e55e5dd5193%3A0xb6b10c987e71c11c!2s8327%20Etude%20Dr%2C%20West%20Jordan%2C%20UT%2084088%2C%20EE.%20UU.!5e0!3m2!1ses!2sco!4v1767588394075!5m2!1ses!2sco" ></iframe>
+            </div>
 
         </div>
     );
