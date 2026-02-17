@@ -134,12 +134,12 @@ const Footer = () => {
           <div className="cs_footer_bottom cs_accent_bg cs_white_color">
             <div className="container">
               <div className="cs_footer_bottom_in">
-                <div className="cs_footer_copyright">Copyright@ {new Date().getFullYear()} <Link href="/">ArkdinAir</Link>. All Rights Reserved.</div>
-                <ul className="cs_footer_menu cs_mp_0">
+                <div className="cs_footer_copyright text-center w-100"><p>Copyright@ {new Date().getFullYear()} <Link href="/">Resolute Air</Link>. All Rights Reserved.</p></div>
+                {/* <ul className="cs_footer_menu cs_mp_0">
                   <li><Link href="#">Setting & Privacy </Link></li>
                   <li><Link href="#">FAQ</Link></li>
                   <li><Link href="#">Support</Link></li>
-                </ul>
+                </ul> */}
               </div>
             </div>
           </div>

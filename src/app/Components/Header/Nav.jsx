@@ -18,6 +18,11 @@ export default function Nav({ setMobileToggle }) {
                 Home V2
               </Link>
             </li>
+            <li>
+              <Link href="/home3" onClick={() => setMobileToggle(false)}>
+                Home V3
+              </Link>
+            </li>
           </ul>
         </DropDown>
       </li>
