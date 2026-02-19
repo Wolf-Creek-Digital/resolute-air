@@ -64,8 +64,74 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <meta name="author" content="Themeservices" />
+        <meta name="author" content="Resolute Heating & Air" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "HVACBusiness",
+              "name": "Resolute Heating & Air",
+              "image": "https://resoluteair.com/assets/img/og-image.jpg",
+              "url": "https://resoluteair.com",
+              "telephone": "801-970-5797",
+              "priceRange": "$$",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "West Jordan",
+                "addressRegion": "UT",
+                "postalCode": "84084",
+                "addressCountry": "US"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 40.6096698,
+                "longitude": -111.9391031
+              },
+              "areaServed": {
+                "@type": "GeoCircle",
+                "geoMidpoint": {
+                  "@type": "GeoCoordinates",
+                  "latitude": 40.6096698,
+                  "longitude": -111.9391031
+                },
+                "geoRadius": "40000"
+              },
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                  ],
+                  "opens": "08:00",
+                  "closes": "18:00"
+                },
+                 {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "Saturday",
+                    "Sunday"
+                  ],
+                  "opens": "00:00",
+                  "closes": "23:59",
+                  "description": "Emergency Service Available"
+                }
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "801-970-5797",
+                "contactType": "customer service",
+                "areaServed": "Salt Lake County",
+                "availableLanguage": "English"
+              }
+            }),
+          }}
+        />
       </head>
       <body className={`${outfit.variable} ${dm_Sans.variable}`}>
         <Header></Header>
