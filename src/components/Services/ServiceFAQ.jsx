@@ -2,39 +2,10 @@
 import React, { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
 
+import { serviceFaqs } from '../../data/servicesData';
+
 const ServiceFAQ = () => {
     const [activeFaq, setActiveFaq] = useState(null);
-
-    const faqs = [
-        {
-            q: "How much does AC repair usually cost?",
-            a: "Most AC repairs range from $150-$600. Common fixes like capacitors or refrigerant recharges typically cost $300-$500. We'll give you an upfront price before starting work.",
-        },
-        {
-            q: "When should I repair vs. replace my furnace?",
-            a: "Generally, if your furnace is under 15 years old and the repair costs less than $1,000, repair makes sense. If it's 18+ years old or needs expensive repairs, replacement is often smarter. I'll give you honest advice.",
-        },
-        {
-            q: "How long do HVAC systems last?",
-            a: "With regular maintenance: AC units last 12-15 years, furnaces last 15-20 years. Without maintenance, you could see a 30-40% shorter lifespan.",
-        },
-        {
-            q: "What's included in a tune-up?",
-            a: "Complete inspection, cleaning, testing, and adjustment of all components. Travis checks for potential problems and can fix small issues before they become expensive breakdowns.",
-        },
-        {
-            q: "Do you offer payment plans?",
-            a: "FINANCING SOON!! We are currently setting up flexible payment options to help with major replacements.",
-        },
-        {
-            q: "How quickly can you get here?",
-            a: "For emergencies: typically within 1-2 hours. For scheduled service: usually same-day or within 24-48 hours.",
-        },
-        {
-            q: "What if you can't fix it?",
-            a: "If I can't fix it, you don't even pay for the service call. Simple as that. I'll even help find someone who can.",
-        },
-    ];
 
     return (
         <section className="py-24 bg-slate-50">
@@ -49,7 +20,7 @@ const ServiceFAQ = () => {
                 </div>
 
                 <div className="space-y-5">
-                    {faqs.map((faq, i) => (
+                    {serviceFaqs.map((faq, i) => (
                         <div
                             key={i}
                             className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 group hover:border-orange-200 transition-colors"

@@ -2,15 +2,10 @@
 import React, { useState } from 'react';
 import { ChevronRight } from 'lucide-react';
 
+import { contactFaqs } from '../../data/contactData';
+
 const FAQ = () => {
     const [activeFaq, setActiveFaq] = useState(null);
-
-    const faqs = [
-        { q: "Do you offer free estimates?", a: "Yes! Free estimates for installations and major repairs. A standard service call fee applies for diagnostic visits." },
-        { q: "Are you available for emergencies?", a: "Yes, 24/7/365. Average emergency response time is 1 hour or less." },
-        { q: "Do you offer financing?", a: "Soon! We are currently setting up financing options. Ask Travis for the most updated info during your call." },
-        { q: "Are you licensed and insured?", a: "Yes. Fully licensed in Utah. You can look us up on Utah State’s DOPL. Full liability coverage included." }
-    ];
 
     return (
         <section className="py-24 bg-white">
@@ -21,7 +16,7 @@ const FAQ = () => {
                 </div>
 
                 <div className="space-y-4">
-                    {faqs.map((faq, i) => (
+                    {contactFaqs.map((faq, i) => (
                         <div key={i} className="bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 group">
                             <button
                                 onClick={() => setActiveFaq(activeFaq === i ? null : i)}

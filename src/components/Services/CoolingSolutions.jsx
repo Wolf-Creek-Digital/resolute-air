@@ -1,6 +1,8 @@
 import React from 'react';
 import { Check, AlertCircle } from 'lucide-react';
 
+import { coolingCommonProblems, repairCriteria, replaceCriteria } from '../../data/servicesData';
+
 const CoolingSolutions = () => {
     return (
         <section className="py-24 bg-slate-50">
@@ -23,13 +25,7 @@ const CoolingSolutions = () => {
                             Common AC Problems
                         </h4>
                         <ul className="grid sm:grid-cols-2 gap-4">
-                            {[
-                                { p: "Blowing Warm Air", c: "Low refrigerant or compressor" },
-                                { p: "Won't Turn On", c: "Electrical or capacitor failure" },
-                                { p: "Loud Noises", c: "Worn motor or loose parts" },
-                                { p: "Short Cycling", c: "Thermostat or refrigerant issues" },
-                                { p: "Water Leaking", c: "Clogged drain or frozen coil" },
-                            ].map((item, idx) => (
+                            {coolingCommonProblems.map((item, idx) => (
                                 <li
                                     key={idx}
                                     className="bg-white p-4 rounded-xl shadow-sm border border-slate-100"
@@ -55,22 +51,11 @@ const CoolingSolutions = () => {
                                 Repair If:
                             </p>
                             <ul className="text-xs space-y-2 text-slate-500 font-bold uppercase tracking-tight">
-                                <li className="flex gap-2">
-                                    <Check size={14} className="text-green-500 shrink-0" /> Under 10 years
-                                    old
-                                </li>
-                                <li className="flex gap-2">
-                                    <Check size={14} className="text-green-500 shrink-0" /> Repair costs
-                                    &lt; $1,000
-                                </li>
-                                <li className="flex gap-2">
-                                    <Check size={14} className="text-green-500 shrink-0" /> System is
-                                    reliable
-                                </li>
-                                <li className="flex gap-2">
-                                    <Check size={14} className="text-green-500 shrink-0" /> Stable energy
-                                    bills
-                                </li>
+                                {repairCriteria.map((item, i) => (
+                                    <li key={i} className="flex gap-2">
+                                        <Check size={14} className="text-green-500 shrink-0" /> {item.text}
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                         <div className="space-y-4">
@@ -78,22 +63,11 @@ const CoolingSolutions = () => {
                                 Replace If:
                             </p>
                             <ul className="text-xs space-y-2 text-slate-500 font-bold uppercase tracking-tight">
-                                <li className="flex gap-2">
-                                    <AlertCircle size={14} className="text-orange-500 shrink-0" /> 12-15+
-                                    years old
-                                </li>
-                                <li className="flex gap-2">
-                                    <AlertCircle size={14} className="text-orange-500 shrink-0" /> Repair
-                                    &gt; 50% cost
-                                </li>
-                                <li className="flex gap-2">
-                                    <AlertCircle size={14} className="text-orange-500 shrink-0" />{" "}
-                                    Frequent breakdowns
-                                </li>
-                                <li className="flex gap-2">
-                                    <AlertCircle size={14} className="text-orange-500 shrink-0" />{" "}
-                                    Climbing energy bills
-                                </li>
+                                {replaceCriteria.map((item, i) => (
+                                    <li key={i} className="flex gap-2">
+                                        <AlertCircle size={14} className="text-orange-500 shrink-0" /> {item.text}
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </div>

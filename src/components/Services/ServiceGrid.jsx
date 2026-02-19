@@ -1,46 +1,8 @@
 import React from 'react';
-import { ThermometerSnowflake, Flame, Wind, Wrench, Construction, Building2, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { mainServices } from '../../data/servicesData';
 
 const ServiceGrid = () => {
-    const mainServices = [
-        {
-            id: "01",
-            title: "AC Repair & Installation",
-            icon: <ThermometerSnowflake size={24} />,
-            desc:
-                "Is your AC blowing warm air? Same-day diagnosis for Salt Lake County.",
-        },
-        {
-            id: "02",
-            title: "Furnace Repair & Install",
-            icon: <Flame size={24} />,
-            desc: "Available 24/7 for no-heat emergencies during Utah winters.",
-        },
-        {
-            id: "03",
-            title: "Ductwork Services",
-            icon: <Wind size={24} />,
-            desc: "Installation & repair for basements, remodels, and additions.",
-        },
-        {
-            id: "04",
-            title: "Seasonal Maintenance",
-            icon: <Wrench size={24} />,
-            desc: "Prevent breakdowns with our comprehensive 15-point tune-ups.",
-        },
-        {
-            id: "05",
-            title: "Basement HVAC",
-            icon: <Construction size={24} />,
-            desc: "Specialized zoning and ductwork for your basement finish project.",
-        },
-        {
-            id: "08",
-            title: "Light Commercial",
-            icon: <Building2 size={24} />,
-            desc: "Fast response for small offices, retail, and multi-unit properties.",
-        },
-    ];
 
     return (
 <section className="py-24 bg-white">

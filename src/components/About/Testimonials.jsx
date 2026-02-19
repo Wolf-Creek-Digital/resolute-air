@@ -2,21 +2,9 @@
 import React from "react";
 import { Star, ChevronRight, MessageSquare } from "lucide-react";
 
+import { aboutTestimonials } from '../../data/aboutData';
+
 const Testimonials = () => {
-  const aboutTestimonials = [
-    {
-      text: "Travis has done an awesome job working on my ac units at my apartments. He was efficient to get the tenants comfortable. He has replaced a condenser and serviced the other units.",
-      author: "Property Owner",
-      location: "Multi-Unit Building",
-      rating: 5
-    },
-    {
-      text: "Travis has far been my number one go-to HVAC guy! He is responsive, clear, transparent, trustworthy, and reliable. For simple questions or big projects he has helped me.",
-      author: "Real Estate Investor",
-      location: "Multiple Properties",
-      rating: 5
-    }
-  ];
 
     return (
               <section className="bg-[#001d3d] py-24 relative overflow-hidden">

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Flame, Check, ShieldCheck } from 'lucide-react';
+import { heatingProblems, installationInclusions } from '../../data/servicesData';
+import { Flame, ShieldCheck, Check } from 'lucide-react';
 
 const HeatingSolutions = () => {
     return (
@@ -20,12 +20,7 @@ const HeatingSolutions = () => {
                             Travis is available 24/7.
                         </p>
                         <div className="space-y-4 pt-4">
-                            {[
-                                "Ignition failure or gas supply problems",
-                                "Failed pilot light or limit switch tripped",
-                                "Loose blower wheel (banging noises)",
-                                "Dirty filter causing short cycling",
-                            ].map((item, i) => (
+                            {heatingProblems.map((item, i) => (
                                 <div
                                     key={i}
                                     className="flex gap-4 items-center bg-white/5 p-4 rounded-xl"
@@ -58,14 +53,7 @@ const HeatingSolutions = () => {
                                 What's Included in Installation:
                             </p>
                             <ul className="grid sm:grid-cols-2 gap-3">
-                                {[
-                                    "Proper BTU sizing",
-                                    "High-efficiency options",
-                                    "Permits & Inspections",
-                                    "Old unit disposal",
-                                    "Warranty coverage",
-                                    "Financing (Soon!)",
-                                ].map((item, i) => (
+                                {installationInclusions.map((item, i) => (
                                     <li
                                         key={i}
                                         className="flex items-center gap-2 text-slate-500 text-xs font-bold uppercase"

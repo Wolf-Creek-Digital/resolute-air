@@ -1,4 +1,4 @@
-import React from 'react';
+import { serviceAreasList, serviceLocations } from '../../data/servicesData';
 import { CheckCircle, Phone } from 'lucide-react';
 
 const ServiceAreas = () => {
@@ -20,20 +20,7 @@ const ServiceAreas = () => {
                     </div>
 
                     <div className="grid gap-6">
-                        {[
-                            {
-                                t: "Basement HVAC",
-                                d: "Extend existing ductwork or add separate zones for remodel projects.",
-                            },
-                            {
-                                t: "Residential Services",
-                                d: "Primary focus on homes, rentals, and multi-unit properties.",
-                            },
-                            {
-                                t: "Light Commercial",
-                                d: "Small offices, retail spaces, and small warehouses.",
-                            },
-                        ].map((item, i) => (
+                        {serviceAreasList.map((item, i) => (
                             <div
                                 key={i}
                                 className="flex gap-6 p-6 bg-slate-50 rounded-3xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-slate-100 group"
@@ -61,14 +48,14 @@ const ServiceAreas = () => {
                     </h4>
                     <div className="grid grid-cols-2 gap-y-4 gap-x-8 text-xs font-bold uppercase tracking-widest text-slate-400">
                         <div className="space-y-4">
-                            <p className="text-white">Salt Lake County</p>
-                            <p className="text-white">Utah County</p>
-                            <p className="text-white">Davis County</p>
+                            {serviceLocations.col1.map((loc, i) => (
+                                <p key={i} className="text-white">{loc}</p>
+                            ))}
                         </div>
                         <div className="space-y-4">
-                            <p className="text-white">Weber County</p>
-                            <p className="text-white">Summit County</p>
-                            <p className="text-white">Wasatch County</p>
+                             {serviceLocations.col2.map((loc, i) => (
+                                <p key={i} className="text-white">{loc}</p>
+                            ))}
                         </div>
                     </div>
                     <div className="mt-12 bg-white/5 p-6 rounded-3xl border border-white/10">
@@ -76,8 +63,7 @@ const ServiceAreas = () => {
                             SERVING THE COMMUNITIES OF:
                         </p>
                         <p className="text-xs font-black tracking-tight leading-relaxed">
-                            West Jordan, Sandy, Draper, South Jordan, SLC, Provo, Orem, Lehi,
-                            Bountiful, Layton, Ogden, Park City.
+                            {serviceLocations.communities}
                         </p>
                     </div>
                     <div className="mt-8 flex items-center gap-4 text-orange-500 font-black uppercase text-xs">

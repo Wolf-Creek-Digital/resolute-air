@@ -2,15 +2,10 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
+import { maintenanceFaqs } from '../../data/emergencyData';
+
 const EmergencyFAQ = () => {
     const [activeFaq, setActiveFaq] = useState(null);
-
-    const maintenanceFaqs = [
-        { q: "Can I cancel anytime?", a: "Yes. No long-term contracts. We keep you as a member by providing great service, not by locking you in." },
-        { q: "What if I need a repair between tune-ups?", a: "No problem! You get priority scheduling and 10% off the repair. That's the value of membership." },
-        { q: "Do you service all brands?", a: "Yes. We service all makes and models of HVAC equipment including Carrier, Trane, Lennox, and more." },
-        { q: "Is it really worth it?", a: "Most members save more than the plan costs through 10% repair discounts, lower energy bills, and avoiding emergency fees." }
-    ];
 
     return (
         <section className="py-24 bg-white">

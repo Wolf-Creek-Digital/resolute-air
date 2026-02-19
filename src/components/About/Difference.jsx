@@ -1,31 +1,11 @@
 "use client";
 import React from "react";
-import { PhoneIncoming, BadgeDollarSign, Home, Award } from "lucide-react";
+
 import SectionIcon from "../Common/SectionIcon";
 
+import { diffItems } from '../../data/aboutData';
+
 const Difference = () => {
-  const diffItems = [
-    {
-      title: "I Answer My Own Phone",
-      desc: "Talk to Travis—not a call center. I'll answer questions and show up myself.",
-      icon: PhoneIncoming
-    },
-    {
-      title: "No Commissions",
-      desc: "Zero incentive to upsell you. Honest repairs over expensive replacements.",
-      icon: BadgeDollarSign
-    },
-    {
-      title: "I Live Here Too",
-      desc: "Based in West Jordan. Serving neighbors with direct accountability.",
-      icon: Home
-    },
-    {
-      title: "15+ Years Pro",
-      desc: "Working on HVAC systems since before smartphones existed. Expert quality.",
-      icon: Award
-    }
-  ];
 
   return (
    <section className="py-24 bg-slate-50">

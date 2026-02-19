@@ -1,5 +1,5 @@
-import React from 'react';
-import { Wind, Wrench, AlertCircle } from 'lucide-react';
+import { ductTags, springTuneUp, fallTuneUp } from '../../data/servicesData';
+import { Wind, AlertCircle, Wrench } from 'lucide-react';
 
 const MaintenanceDucts = () => {
     return (
@@ -56,7 +56,7 @@ const MaintenanceDucts = () => {
                             </div>
                         </div>
                         <div className="mt-8 flex gap-4 overflow-x-auto pb-4 border-t pt-6">
-                            {["Basement Finishes", "Repair & Sealing", "Zoning"].map((tag, i) => (
+                            {ductTags.map((tag, i) => (
                                 <span
                                     key={i}
                                     className="bg-slate-100 px-4 py-2 rounded-full text-[9px] font-black uppercase tracking-widest text-slate-500 whitespace-nowrap"
@@ -82,11 +82,9 @@ const MaintenanceDucts = () => {
                                         Spring AC Tune-Up
                                     </h5>
                                     <ul className="text-[10px] font-bold uppercase space-y-2 opacity-80">
-                                        <li>• Clean condenser coils</li>
-                                        <li>• Check refrigerant levels</li>
-                                        <li>• Test thermostat accuracy</li>
-                                        <li>• Inspect connections</li>
-                                        <li>• Clear condensate drain</li>
+                                        {springTuneUp.map((item, i) => (
+                                            <li key={i}>• {item}</li>
+                                        ))}
                                     </ul>
                                 </div>
                                 <div>
@@ -94,11 +92,9 @@ const MaintenanceDucts = () => {
                                         Fall Furnace Tune-Up
                                     </h5>
                                     <ul className="text-[10px] font-bold uppercase space-y-2 opacity-80">
-                                        <li>• Inspect heat exchanger</li>
-                                        <li>• Test ignition system</li>
-                                        <li>• Adjust gas pressure</li>
-                                        <li>• Clean burners</li>
-                                        <li>• Combustion analysis</li>
+                                        {fallTuneUp.map((item, i) => (
+                                            <li key={i}>• {item}</li>
+                                        ))}
                                     </ul>
                                 </div>
                             </div>
