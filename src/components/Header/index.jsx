@@ -126,6 +126,8 @@ export default function Header({ variant }) {
           </div>
         </div>
       </header>
+               {/* Spacer for fixed header */}
+       <div className="lg:h-[140px]"></div>
     </>
   );
 }
