@@ -26,12 +26,21 @@ import {
     AlertCircle,
     Check,
     ShieldCheck,
+    Construction,
+    Snowflake,
 } from "lucide-react";
 import SectionIcon from "../Common/SectionIcon";
 
 const Services = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const [activeFaq, setActiveFaq] = useState(null);
-    const [billingCycle, setBillingCycle] = useState("monthly"); // 'monthly' or 'yearly'
+
+    useEffect(() => {
+        const handleScroll = () => setScrolled(window.scrollY > 50);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const mainServices = [
         {
@@ -62,57 +71,14 @@ const Services = () => {
         {
             id: "05",
             title: "Basement HVAC",
-            icon: <Home size={24} />,
+            icon: <Construction size={24} />,
             desc: "Specialized zoning and ductwork for your basement finish project.",
         },
         {
-            id: "06",
+            id: "08",
             title: "Light Commercial",
             icon: <Building2 size={24} />,
             desc: "Fast response for small offices, retail, and multi-unit properties.",
-        },
-    ];
-
-    const pricingPlans = [
-        {
-            priceMonthly: "150",
-            priceYearly: "125",
-            title: "Basic Plan",
-            features: [
-                "Refrigerant leak detection & repair",
-                "Thermostat replacement",
-                "Clean condenser coil",
-                "Air filter replacement",
-                "Clean condenser coil",
-                "AC fan replacement",
-            ],
-        },
-        {
-            priceMonthly: "200",
-            priceYearly: "165",
-            title: "Standard Plan",
-            features: [
-                "Refrigerant leak detection & repair",
-                "Thermostat replacement",
-                "Clean condenser coil",
-                "Air filter replacement",
-                "Clean condenser coil",
-                "AC fan replacement",
-            ],
-            highlight: true,
-        },
-        {
-            priceMonthly: "250",
-            priceYearly: "210",
-            title: "Premium Plan",
-            features: [
-                "Refrigerant leak detection & repair",
-                "Thermostat replacement",
-                "Clean condenser coil",
-                "Air filter replacement",
-                "Clean condenser coil",
-                "AC fan replacement",
-            ],
         },
     ];
 
@@ -123,7 +89,7 @@ const Services = () => {
         },
         {
             q: "When should I repair vs. replace my furnace?",
-            a: "Generally, if your furnace is under 15 years old and the repair costs less than $1,000, repair makes sense. If it's 18+ years old or needs expensive repairs, replacement is often smarter.",
+            a: "Generally, if your furnace is under 15 years old and the repair costs less than $1,000, repair makes sense. If it's 18+ years old or needs expensive repairs, replacement is often smarter. I'll give you honest advice.",
         },
         {
             q: "How long do HVAC systems last?",
@@ -135,1119 +101,555 @@ const Services = () => {
         },
         {
             q: "Do you offer payment plans?",
-            a: "SOON!! We are working on providing flexible financing options for our customers.",
+            a: "FINANCING SOON!! We are currently setting up flexible payment options to help with major replacements.",
         },
         {
             q: "How quickly can you get here?",
-            a: "For emergencies: typically within 1-2 hours. For scheduled service: usually within 24-48 hours, often same-day or next-day.",
+            a: "For emergencies: typically within 1-2 hours. For scheduled service: usually same-day or within 24-48 hours.",
+        },
+        {
+            q: "What if you can't fix it?",
+            a: "If I can't fix it, you don't even pay for the service call. Simple as that. I'll even help find someone who can.",
         },
     ];
 
-    const handleImageError = (e) => {
-        e.target.src =
-            "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=800";
-    };
-
     return (
-        <>
-            <style jsx>{`
-    .service-card-wrapper {
-     filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.05));
-     transition: filter 0.3s ease;
-    }
-    .service-card-wrapper:hover {
-     filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));
-    }
+        <div className="min-h-screen bg-white font-sans text-slate-900 leading-normal">
+            {/* Intro Description Section - New Placement */}
+            <section className="py-20 bg-white border-b border-slate-100">
+                <div className="max-w-4xl mx-auto px-4 text-center space-y-6">
+                    <h2 className="text-3xl md:text-4xl font-black text-[#001d3d] uppercase tracking-tight leading-tight">
+                        AC Repair, Furnace Installation & HVAC Services in Salt Lake County
+                    </h2>
+                    <p className="text-slate-600 text-lg font-medium leading-relaxed">
+                        From emergency repairs to new installations, Resolute Heating & Air
+                        provides complete HVAC solutions for homeowners across the Wasatch Front.
+                        Travis personally handles every job with honest recommendations and fair
+                        pricing—no high-pressure sales, ever. Just options and suggestions.
+                    </p>
+                    <div className="w-24 h-1.5 bg-orange-600 mx-auto rounded-full"></div>
+                </div>
+            </section>
 
-    .service-card {
-     background-color: white;
-     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-     aspect-ratio: 1/1;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-     position: relative;
-     z-index: 1;
-    }
+            {/* Main Grid Intro */}
+            <section className="py-24 bg-white">
+                <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-y-24 gap-x-12">
+                    {mainServices.map((service, i) => (
+                        <div key={i} className="relative group flex flex-col items-center">
+                            <div
+                                className="w-full aspect-square bg-white border border-slate-100 flex flex-col items-center justify-center p-10 transition-all duration-500 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-2xl relative overflow-visible"
+                                style={{
+                                    clipPath:
+                                        "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+                                }}
+                            >
+                                <div className="absolute top-10 font-black text-slate-100 text-5xl group-hover:text-orange-50 transition-colors pointer-events-none">
+                                    {service.id}
+                                </div>
+                                <div className="relative z-10 flex flex-col items-center">
+                                    <h3 className="text-lg font-black text-[#001d3d] text-center uppercase tracking-tight mb-3 px-2 leading-tight">
+                                        {service.title}
+                                    </h3>
+                                    <p className="text-[10px] text-slate-400 text-center mb-4 max-w-[150px] font-bold uppercase tracking-widest leading-relaxed">
+                                        {service.desc}
+                                    </p>
+                                    <button className="text-[9px] font-black uppercase tracking-[0.2em] flex items-center gap-2 text-[#001d3d] group-hover:text-orange-600 transition-colors">
+                                        VIEW DETAILS <ArrowRight size={10} />
+                                    </button>
+                                </div>
+                                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-white w-14 h-14 rounded-full shadow-lg border border-slate-50 flex items-center justify-center text-slate-300 group-hover:bg-orange-600 group-hover:text-white transition-all duration-300">
+                                    {service.icon}
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
 
-    .service-card .service-id {
-     color: #f8fafc; /* slate-50 */
-     transition: color 0.3s ease;
-     font-size: 5rem;
-     line-height: 1;
-     position: absolute;
-     top: 2rem;
-     z-index: 0;
-     font-weight: 900;
-    }
-    .service-card-wrapper:hover .service-id {
-     color: #fff7ed; /* orange-50 */
-    }
-
-    .service-card-content {
-     position: relative;
-     z-index: 1;
-     padding: 2rem;
-     text-align: center;
-    }
-
-    .icon-circle-wrapper {
-     position: absolute;
-     bottom: -28px;
-     left: 50%;
-     transform: translateX(-50%);
-     z-index: 2;
-     filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
-    }
-    .icon-circle {
-     width: 56px;
-     height: 56px;
-     background-color: white;
-     border-radius: 50%;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     color: #cbd5e1; /* slate-300 */
-     transition: all 0.3s ease;
-    }
-    .service-card-wrapper:hover .icon-circle {
-     background-color: var(--accent);
-     color: white;
-    }
-
-    .read-more {
-     color: #010f34;
-     border-bottom: 1px solid transparent;
-     transition: all 0.3s ease;
-    }
-    .service-card-wrapper:hover .read-more {
-     color: var(--accent);
-     border-color: var(--accent);
-    }
-
-    .pricing-card {
-     transition: transform 0.3s ease;
-    }
-    .pricing-card:hover {
-     transform: translateY(-10px);
-    }
-    .pricing-card.highlight {
-     border-top: 8px solid var(--accent);
-    }
-    .pricing-card:not(.highlight) {
-     border-top: 8px solid transparent;
-    }
-    .pricing-card:hover .price-box {
-     background-color: var(--accent) !important;
-     color: white !important;
-    }
-
-    .faq-item button {
-     transition: all 0.3s ease;
-    }
-    .faq-item:hover {
-     border-color: #fed7aa; /* orange-200 */
-    }
-
-    .bg-accent {
-     background-color: var(--accent);
-    }
-    .text-accent {
-     color: var(--accent);
-    }
-    .border-accent {
-     border-color: var(--accent);
-    }
-
-    .hover-bg-accent:hover {
-     background-color: var(--accent) !important;
-     color: white !important;
-    }
-    .hover-text-accent:hover {
-     color: var(--accent) !important;
-    }
-
-    .discover-btn {
-     transition: all 0.3s ease;
-     background-color: white !important;
-     color: var(--accent) !important;
-    }
-    .discover-btn:hover {
-     background-color: #010f34 !important;
-     color: white !important;
-    }
-
-    .emergency-card {
-     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-     border-bottom: 8px solid var(--accent) !important;
-    }
-    .emergency-card:hover {
-     transform: translateY(-5px);
-     box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
-    }
-    .emergency-card .icon-box {
-     transition: all 0.3s ease;
-     box-shadow: 0 0 0 0 rgba(226, 109, 38, 0.7);
-    }
-    .emergency-card:hover .icon-box {
-     box-shadow: 0 0 0 10px rgba(226, 109, 38, 0.3);
-     transform: scale(1.1);
-    }
-
-    .cta-btn {
-     background-color: var(--accent) !important;
-     color: white !important;
-     transition: all 0.3s ease;
-     border: 2px solid var(--accent) !important;
-    }
-    .cta-btn:hover {
-     background-color: white !important;
-     color: var(--accent) !important;
-    }
-
-    .phone-icon-box {
-     background-color: transparent !important;
-     color: var(--accent) !important;
-     transition: all 0.3s ease;
-     border: 2px solid rgba(255, 255, 255, 0.2) !important;
-    }
-    .phone-btn:hover .phone-icon-box {
-     background-color: var(--accent) !important;
-     color: white !important;
-     border-color: var(--accent) !important;
-    }
-
-    .btn-emergency-call {
-     background-color: white !important;
-     color: #010f34 !important;
-     transition: all 0.3s ease;
-     font-size: 14px;
-     letter-spacing: 0.1em;
-    }
-    .btn-emergency-call:hover {
-     background-color: #ea580c !important;
-     color: white !important;
-     box-shadow: 0 10px 20px rgba(234, 88, 12, 0.3);
-     transform: translateY(-3px);
-    }
-
-    .dots-grid {
-     display: grid;
-     grid-template-columns: repeat(4, 1fr);
-     gap: 0.5rem;
-    }
-   `}</style>
-
-            <div className="font-sans text-dark leading-normal">
-                {/* Intro Description Section */}
-                <section className="py-5 bg-white border-bottom">
-                    <div className="container">
-                        <div className="row justify-content-center">
-                            <div className="col-lg-10 text-center">
-                                <h2
-                                    className="display-5 fw-black text-uppercase mb-4"
-                                    style={{ color: "#010f34", fontWeight: 900, letterSpacing: "-0.02em" }}
-                                >
-                                    AC Repair, Furnace Installation & HVAC Services in Salt Lake County
-                                </h2>
-                                <p
-                                    className="fs-5 text-secondary fw-medium mb-5 mx-auto lh-lg"
-                                    style={{ maxWidth: "1200px" }}
-                                >
-                                    From emergency repairs to new installations, Resolute Heating & Air
-                                    provides complete HVAC solutions for homeowners across the Wasatch
-                                    Front. Travis personally handles every job with honest recommendations
-                                    and fair pricing—no high-pressure sales, ever. Just options and
-                                    suggestions.
+            {/* Section 1: AC Detail */}
+            <section className="py-24 bg-slate-50">
+                <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
+                    <div className="space-y-8">
+                        <div className="space-y-2">
+                            <span className="text-orange-600 font-black uppercase tracking-[0.2em] text-xs">
+                                COOLING SOLUTIONS
+                            </span>
+                            <h2 className="text-4xl font-black text-[#001d3d] uppercase tracking-tight leading-tight">
+                                AC Repair & Installation
+                            </h2>
+                        </div>
+                        <p className="text-slate-600 font-medium">
+                            When Utah temperatures hit 95°F+, a broken AC is unbearable. Travis
+                            diagnoses and fixes problems the same day in most cases.
+                        </p>
+                        <div className="space-y-4">
+                            <h4 className="font-black text-[#001d3d] text-sm uppercase tracking-widest border-l-4 border-orange-600 pl-4">
+                                Common AC Problems
+                            </h4>
+                            <ul className="grid sm:grid-cols-2 gap-4">
+                                {[
+                                    { p: "Blowing Warm Air", c: "Low refrigerant or compressor" },
+                                    { p: "Won't Turn On", c: "Electrical or capacitor failure" },
+                                    { p: "Loud Noises", c: "Worn motor or loose parts" },
+                                    { p: "Short Cycling", c: "Thermostat or refrigerant issues" },
+                                    { p: "Water Leaking", c: "Clogged drain or frozen coil" },
+                                ].map((item, idx) => (
+                                    <li
+                                        key={idx}
+                                        className="bg-white p-4 rounded-xl shadow-sm border border-slate-100"
+                                    >
+                                        <p className="text-orange-600 font-black text-xs uppercase mb-1">
+                                            {item.p}
+                                        </p>
+                                        <p className="text-slate-500 text-[10px] font-bold uppercase">
+                                            {item.c}
+                                        </p>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="bg-white p-8 rounded-3xl shadow-xl border border-slate-100">
+                        <h4 className="text-xl font-black text-[#001d3d] uppercase mb-6 text-center tracking-tight">
+                            Repair vs. Replace Your AC
+                        </h4>
+                        <div className="grid grid-cols-2 gap-6">
+                            <div className="space-y-4">
+                                <p className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-[10px] font-black uppercase inline-block">
+                                    Repair If:
                                 </p>
-                                <div
-                                    className="mx-auto rounded-pill"
-                                    style={{ width: "96px", height: "6px", backgroundColor: "#ea580c" }}
-                                ></div>
+                                <ul className="text-xs space-y-2 text-slate-500 font-bold uppercase tracking-tight">
+                                    <li className="flex gap-2">
+                                        <Check size={14} className="text-green-500 shrink-0" /> Under 10 years
+                                        old
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <Check size={14} className="text-green-500 shrink-0" /> Repair costs
+                                        &lt; $1,000
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <Check size={14} className="text-green-500 shrink-0" /> System is
+                                        reliable
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <Check size={14} className="text-green-500 shrink-0" /> Stable energy
+                                        bills
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="space-y-4">
+                                <p className="bg-orange-50 text-orange-700 px-3 py-1 rounded-full text-[10px] font-black uppercase inline-block">
+                                    Replace If:
+                                </p>
+                                <ul className="text-xs space-y-2 text-slate-500 font-bold uppercase tracking-tight">
+                                    <li className="flex gap-2">
+                                        <AlertCircle size={14} className="text-orange-500 shrink-0" /> 12-15+
+                                        years old
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <AlertCircle size={14} className="text-orange-500 shrink-0" /> Repair
+                                        &gt; 50% cost
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <AlertCircle size={14} className="text-orange-500 shrink-0" />{" "}
+                                        Frequent breakdowns
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <AlertCircle size={14} className="text-orange-500 shrink-0" />{" "}
+                                        Climbing energy bills
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
-                </section>
-
-                {/* Main Services Grid */}
-                <section className="py-5 position-relative bg-white">
-                    <div className="container py-5">
-                        <div className="row g-5">
-                            {mainServices.map((service, i) => (
-                                <div key={i} className="col-md-6 col-lg-4">
-                                    <div className="position-relative d-flex flex-column align-items-center service-card-wrapper group">
-                                        {/* Diamond Container */}
-                                        <div className="w-100 service-card">
-                                            {/* Number at top */}
-                                            <span className="service-id">{service.id}</span>
-
-                                            <div className="service-card-content d-flex flex-column align-items-center">
-                                                <h3 className="h6 fw-bold text-dark text-uppercase mb-3 px-2 lh-sm pt-4">
-                                                    {service.title}
-                                                </h3>
-                                                <p
-                                                    className="small text-muted mb-4 fw-bold text-uppercase"
-                                                    style={{
-                                                        fontSize: "10px",
-                                                        letterSpacing: "0.1em",
-                                                        maxWidth: "180px",
-                                                    }}
-                                                >
-                                                    {service.desc}
-                                                </p>
-                                                <button
-                                                    className="btn btn-link text-decoration-none p-0 small fw-bold d-flex align-items-center gap-2 read-more"
-                                                    style={{ fontSize: "9px", letterSpacing: "0.2em" }}
-                                                >
-                                                    VIEW DETAILS <ArrowRight size={12} />
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        {/* Icon Circle at Bottom */}
-                                        <div className="icon-circle-wrapper">
-                                            <div className="icon-circle">{service.icon}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
+                        <div className="mt-8 p-4 bg-slate-50 rounded-xl border-t-4 border-orange-600 italic text-slate-600 text-xs font-medium">
+                            "I'll tell you honestly which option makes more financial sense for YOUR
+                            situation. No pressure to buy if repair is smarter." — Travis
                         </div>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                {/* Section 1: AC Detail */}
-                <section className="py-5 bg-light">
-                    <div className="container py-5">
-                        <div className="row g-5 align-items-center">
-                            <div className="col-lg-6">
-                                <div className="d-flex flex-column gap-4">
-                                    <div>
-                                        <span
-                                            className="fw-bold text-uppercase small d-block mb-2"
-                                            style={{
-                                                color: "#ea580c",
-                                                letterSpacing: "0.2em",
-                                                fontSize: "12px",
-                                            }}
-                                        >
-                                            {" "}
-                                            <SectionIcon size={16} />
-                                            COOLING SOLUTIONS
+            {/* Section 2: Furnace Detail */}
+            <section className="py-24 bg-white">
+                <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-20 items-center">
+                    <div className="order-2 lg:order-1 relative">
+                        <div className="bg-[#001d3d] p-10 rounded-[40px] text-white space-y-8 shadow-2xl">
+                            <div className="flex justify-between items-start">
+                                <h4 className="text-2xl font-black uppercase tracking-tight">
+                                    No-Heat Emergencies
+                                </h4>
+                                <div className="bg-orange-600 p-3 rounded-2xl animate-pulse">
+                                    <Flame size={24} />
+                                </div>
+                            </div>
+                            <p className="text-slate-400 font-medium italic">
+                                Utah winters drop to 0°F. If your furnace stops, it's an emergency.
+                                Travis is available 24/7.
+                            </p>
+                            <div className="space-y-4 pt-4">
+                                {[
+                                    "Ignition failure or gas supply problems",
+                                    "Failed pilot light or limit switch tripped",
+                                    "Loose blower wheel (banging noises)",
+                                    "Dirty filter causing short cycling",
+                                ].map((item, i) => (
+                                    <div
+                                        key={i}
+                                        className="flex gap-4 items-center bg-white/5 p-4 rounded-xl"
+                                    >
+                                        <div className="w-2 h-2 bg-orange-600 rounded-full"></div>
+                                        <span className="text-sm font-bold uppercase tracking-tight">
+                                            {item}
                                         </span>
-                                        <h2
-                                            className="display-5 fw-black text-dark text-uppercase lh-sm"
-                                            style={{ color: "#010f34", fontWeight: 900 }}
-                                        >
-                                            AC Repair & Installation
-                                        </h2>
                                     </div>
-                                    <p className="fs-5 text-muted fw-medium lh-lg">
-                                        When Utah temperatures hit 95°F+, a broken AC is unbearable. Travis
-                                        diagnoses and fixes problems the same day in most cases.
-                                    </p>
-
-                                    <div className="mt-2">
-                                        <h4
-                                            className="fw-bold text-dark text-uppercase small mb-4 ps-3 border-start border-4 border-warning"
-                                            style={{ borderColor: "#ea580c !important", letterSpacing: "0.1em" }}
-                                        >
-                                            {" "}
-                                            Common AC Problems
-                                        </h4>
-                                        <div className="row g-3">
-                                            {[
-                                                { p: "Blowing Warm Air", c: "Low refrigerant or compressor" },
-                                                { p: "Won't Turn On", c: "Electrical or capacitor failure" },
-                                                { p: "Loud Noises", c: "Worn motor or loose parts" },
-                                                { p: "Short Cycling", c: "Thermostat or refrigerant issues" },
-                                                { p: "Water Leaking", c: "Clogged drain or frozen coil" },
-                                            ].map((item, idx) => (
-                                                <div key={idx} className="col-sm-6">
-                                                    <div className="bg-white p-3 rounded-3 shadow-sm border border-light h-100">
-                                                        <p
-                                                            className="fw-black text-uppercase mb-1 small"
-                                                            style={{ color: "#ea580c", fontSize: "12px", fontWeight: 900 }}
-                                                        >
-                                                            {item.p}
-                                                        </p>
-                                                        <p
-                                                            className="text-muted fw-bold text-uppercase mb-0"
-                                                            style={{ fontSize: "10px" }}
-                                                        >
-                                                            {item.c}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
-
-                            <div className="col-lg-6">
-                                <div className="bg-white p-4 p-md-5 rounded-4 shadow-lg border border-light">
-                                    <h4
-                                        className="h4 fw-black text-dark text-uppercase mb-4 text-center"
-                                        style={{ color: "#010f34" }}
-                                    >
-                                        Repair vs. Replace Your AC
-                                    </h4>
-                                    <div className="row g-4">
-                                        <div className="col-6">
-                                            <div className="d-flex flex-column gap-3">
-                                                <span
-                                                    className="badge rounded-pill text-uppercase py-2 px-3 align-self-start"
-                                                    style={{
-                                                        backgroundColor: "#dcfce7",
-                                                        color: "#15803d",
-                                                        fontSize: "10px",
-                                                        fontWeight: 800,
-                                                    }}
-                                                >
-                                                    Repair If:
-                                                </span>
-                                                <ul className="list-unstyled mb-0 d-flex flex-column gap-2">
-                                                    {[
-                                                        "Under 10 years old",
-                                                        "Repair costs < $1,000",
-                                                        "System is reliable",
-                                                        "Stable energy bills",
-                                                    ].map((item, i) => (
-                                                        <li
-                                                            key={i}
-                                                            className="d-flex gap-2 align-items-center text-muted fw-bold text-uppercase"
-                                                            style={{ fontSize: "11px" }}
-                                                        >
-                                                            <Check
-                                                                size={14}
-                                                                className="flex-shrink-0"
-                                                                style={{ color: "#22c55e" }}
-                                                            />{" "}
-                                                            {item}
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div className="col-6">
-                                            <div className="d-flex flex-column gap-3">
-                                                <span
-                                                    className="badge rounded-pill text-uppercase py-2 px-3 align-self-start"
-                                                    style={{
-                                                        backgroundColor: "#ffedd5",
-                                                        color: "#c2410c",
-                                                        fontSize: "10px",
-                                                        fontWeight: 800,
-                                                    }}
-                                                >
-                                                    Replace If:
-                                                </span>
-                                                <ul className="list-unstyled mb-0 d-flex flex-column gap-2">
-                                                    {[
-                                                        "12-15+ years old",
-                                                        "Repair > 50% cost",
-                                                        "Frequent breakdowns",
-                                                        "Climbing energy bills",
-                                                    ].map((item, i) => (
-                                                        <li
-                                                            key={i}
-                                                            className="d-flex gap-2 align-items-center text-muted fw-bold text-uppercase"
-                                                            style={{ fontSize: "11px" }}
-                                                        >
-                                                            <AlertCircle
-                                                                size={14}
-                                                                className="flex-shrink-0"
-                                                                style={{ color: "#f97316" }}
-                                                            />{" "}
-                                                            {item}
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        className="mt-4 p-3 bg-light rounded-3 border-top border-4 border-warning fst-italic text-muted small fw-medium"
-                                        style={{ borderColor: "#ea580c !important" }}
-                                    >
-                                        "I'll tell you honestly which option makes more financial sense for
-                                        YOUR situation. No pressure to buy if repair is smarter." — Travis
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Orange Action Banner */}
-                <section
-                    className="py-5 position-relative overflow-hidden"
-                    style={{ backgroundColor: "#ea580c" }}
-                >
-                    <div
-                        className="position-absolute top-0 end-0 h-100 opacity-10"
-                        style={{
-                            width: "33%",
-                            transform: "skewX(-20deg) translateX(40px)",
-                            backgroundColor: "#ec6925",
-                        }}
-                    ></div>
-                    <div className="container position-relative z-1">
-                        <div className="row align-items-center gy-4">
-                            <div className="col-lg-7 text-white">
-                                <span
-                                    className="d-flex align-items-center gap-2 fw-bold text-uppercase small mb-2"
-                                    style={{ letterSpacing: "0.2em", fontSize: "10px" }}
-                                >
-                                    <div
-                                        style={{ width: "24px", height: "2px", backgroundColor: "#fff" }}
-                                    ></div>{" "}
-                                    FREE TO CONTACT US
-                                </span>
-                                <h2 className="display-4 fw-bold text-uppercase lh-sm text-white">
-                                    Get Premium Air Services <br className="d-none d-md-block" /> From With
-                                    Us!
-                                </h2>
-                            </div>
-                            <div className="col-lg-5">
-                                <div className="d-flex align-items-center justify-content-lg-end gap-4">
-                                    <button
-                                        className="btn px-4 py-3 rounded-1 fw-bold text-uppercase small d-flex align-items-center gap-2 shadow hover-lift discover-btn"
-                                        style={{ letterSpacing: "0.1em" }}
-                                    >
-                                        DISCOVER MORE <ArrowRight size={16} />
-                                    </button>
-                                    <div
-                                        className="rounded-circle bg-white d-flex align-items-center justify-content-center shadow border border-4 border-white-50"
-                                        style={{ width: "64px", height: "64px", color: "var(--accent)" }}
-                                    >
-                                        <Star fill="currentColor" size={24} />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Section 2: Furnace Detail */}
-                <section className="py-5 bg-white">
-                    <div className="container py-5">
-                        <div className="row g-5 align-items-center">
-                            {/* Left Column (Order 2 on mobile, 1 on LG) */}
-                            <div className="col-lg-6 order-2 order-lg-1">
-                                <div
-                                    className="position-relative p-4 p-md-5 rounded-4 shadow-lg text-white"
-                                    style={{ backgroundColor: "#010f34", borderRadius: "40px" }}
-                                >
-                                    <div className="d-flex justify-content-between align-items-start mb-4">
-                                        <h4
-                                            className="h3 fw-black text-uppercase lh-sm"
-                                            style={{ fontWeight: 900 }}
-                                        >
-                                            No-Heat Emergencies
-                                        </h4>
-                                        <div className="p-3 rounded-4" style={{ backgroundColor: "#ea580c" }}>
-                                            <Flame size={24} className="text-white" />
-                                        </div>
-                                    </div>
-                                    <p className="fw-medium fst-italic mb-4" style={{ color: "#94a3b8" }}>
-                                        Utah winters drop to 0°F. If your furnace stops, it's an emergency.
-                                        Travis is available 24/7.
-                                    </p>
-                                    <div className="d-flex flex-column gap-3 mb-5">
-                                        {[
-                                            "Ignition failure or gas supply problems",
-                                            "Failed pilot light or limit switch tripped",
-                                            "Loose blower wheel (banging noises)",
-                                            "Dirty filter causing short cycling",
-                                        ].map((item, i) => (
-                                            <div
-                                                key={i}
-                                                className="d-flex align-items-center gap-3 p-3 rounded-3"
-                                                style={{ backgroundColor: "rgba(255,255,255,0.05)" }}
-                                            >
-                                                <div
-                                                    className="rounded-circle flex-shrink-0"
-                                                    style={{ width: "8px", height: "8px", backgroundColor: "#ea580c" }}
-                                                ></div>
-                                                <span
-                                                    className="small fw-bold text-uppercase"
-                                                    style={{ letterSpacing: "-0.025em" }}
-                                                >
-                                                    {item}
-                                                </span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <a
-                                        href="tel:8019705797"
-                                        className="btn w-100 py-3 rounded-3 fw-black text-uppercase d-block text-center shadow hover-lift btn-emergency-call"
-                                    >
-                                        CALL IMMEDIATELY: 801-970-5797
-                                    </a>
-                                </div>
-                            </div>
-
-                            {/* Right Column (Order 1 on mobile, 2 on LG) */}
-                            <div className="col-lg-6 order-1 order-lg-2">
-                                <div className="d-flex flex-column gap-4">
-                                    <div>
-                                        <span
-                                            className="fw-bold text-uppercase small d-block mb-2"
-                                            style={{
-                                                color: "#ea580c",
-                                                letterSpacing: "0.2em",
-                                                fontSize: "12px",
-                                            }}
-                                        >
-                                            <SectionIcon size={16} />
-                                            HEATING SPECIALISTS
-                                        </span>
-                                        <h2
-                                            className="display-4 fw-black text-dark text-uppercase lh-sm"
-                                            style={{ color: "#010f34", fontWeight: 900 }}
-                                        >
-                                            Furnace Installation & Repair
-                                        </h2>
-                                    </div>
-
-                                    <div
-                                        className="p-4 bg-light rounded-4 border-start border-4 border-warning"
-                                        style={{ borderColor: "#ea580c !important" }}
-                                    >
-                                        <p
-                                            className="fw-black text-uppercase small mb-3"
-                                            style={{ color: "#010f34" }}
-                                        >
-                                            What's Included in Installation:
-                                        </p>
-                                        <div className="row g-3">
-                                            {[
-                                                "Proper BTU sizing",
-                                                "High-efficiency options",
-                                                "Permits & Inspections",
-                                                "Old unit disposal",
-                                                "Warranty coverage",
-                                                "Financing (Soon!)",
-                                            ].map((item, i) => (
-                                                <div key={i} className="col-sm-6">
-                                                    <div
-                                                        className="d-flex align-items-center gap-2 text-muted fw-bold text-uppercase small"
-                                                        style={{ fontSize: "11px" }}
-                                                    >
-                                                        <Check size={14} style={{ color: "#ea580c" }} /> {item}
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        className="d-flex align-items-start gap-3 p-4 rounded-4 border"
-                                        style={{ backgroundColor: "#eff6ff", borderColor: "#dbeafe" }}
-                                    >
-                                        <ShieldCheck className="flex-shrink-0" style={{ color: "#2563eb" }} />
-                                        <p
-                                            className="small fw-bold text-uppercase mb-0"
-                                            style={{ color: "#1e3a8a", fontSize: "12px" }}
-                                        >
-                                            Repair makes sense if heat exchanger is intact and furnace is under
-                                            15 years old.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Section 3: Ductwork & Maintenance */}
-                <section className="py-5 bg-light">
-                    <div className="container py-5">
-                        <div className="text-center mb-5">
-                            <span
-                                className="fw-bold text-uppercase small d-block mb-2"
-                                style={{ color: "#ea580c", letterSpacing: "0.2em", fontSize: "12px" }}
-                            >
-                                <SectionIcon size={16} />
-                                MAINTENANCE & DUCTS
-                            </span>
-                            <h2
-                                className="display-4 fw-black text-dark text-uppercase lh-sm"
-                                style={{ color: "#010f34", fontWeight: 900 }}
-                            >
-                                Keep Your System Efficient
-                            </h2>
-                        </div>
-
-                        <div className="row g-5">
-                            {/* Ductwork */}
-                            <div className="col-lg-6">
-                                <div
-                                    className="bg-white p-4 p-md-5 rounded-4 shadow-sm border border-light h-100"
-                                    style={{ borderRadius: "40px" }}
-                                >
-                                    <div className="d-flex align-items-center gap-3 mb-4">
-                                        <Wind size={32} style={{ color: "#ea580c" }} />
-                                        <h3
-                                            className="h2 fw-black text-uppercase mb-0"
-                                            style={{ color: "#010f34" }}
-                                        >
-                                            Ductwork Services
-                                        </h3>
-                                    </div>
-                                    <p className="text-secondary fw-medium mb-4">
-                                        Bad ductwork can waste 30% of your energy. We design and seal systems
-                                        for basements and remodels.
-                                    </p>
-
-                                    <div className="d-flex flex-column gap-3 mb-4">
-                                        <div className="d-flex gap-3">
-                                            <div
-                                                className="p-2 rounded-3 flex-shrink-0"
-                                                style={{ backgroundColor: "#ffedd5", color: "#ea580c" }}
-                                            >
-                                                <AlertCircle size={20} />
-                                            </div>
-                                            <div>
-                                                <p
-                                                    className="fw-black text-dark text-uppercase small mb-0"
-                                                    style={{ fontSize: "12px" }}
-                                                >
-                                                    Uneven Heating/Cooling
-                                                </p>
-                                                <p
-                                                    className="text-muted fw-bold text-uppercase small mb-0"
-                                                    style={{ fontSize: "10px" }}
-                                                >
-                                                    Solution: Duct balancing or redesign
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div className="d-flex gap-3">
-                                            <div
-                                                className="p-2 rounded-3 flex-shrink-0"
-                                                style={{ backgroundColor: "#ffedd5", color: "#ea580c" }}
-                                            >
-                                                <AlertCircle size={20} />
-                                            </div>
-                                            <div>
-                                                <p
-                                                    className="fw-black text-dark text-uppercase small mb-0"
-                                                    style={{ fontSize: "12px" }}
-                                                >
-                                                    Excessive Dust
-                                                </p>
-                                                <p
-                                                    className="text-muted fw-bold text-uppercase small mb-0"
-                                                    style={{ fontSize: "10px" }}
-                                                >
-                                                    Solution: Seal return duct leaks
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="d-flex flex-wrap gap-2 pt-4 border-top border-light">
-                                        {["Basement Finishes", "Repair & Sealing", "Zoning"].map((tag, i) => (
-                                            <span
-                                                key={i}
-                                                className="badge bg-light text-secondary rounded-pill fw-black text-uppercase px-3 py-2"
-                                                style={{ letterSpacing: "0.1em", fontSize: "9px" }}
-                                            >
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Tune-Ups */}
-                            <div className="col-lg-6">
-                                <div
-                                    className="p-4 p-md-5 rounded-4 shadow-lg text-white h-100 position-relative overflow-hidden"
-                                    style={{ backgroundColor: "#010f34", borderRadius: "40px" }}
-                                >
-                                    <div className="position-relative z-1">
-                                        <div className="d-flex align-items-center gap-3 mb-4">
-                                            <Wrench size={32} style={{ color: "#ea580c" }} />
-                                            <h3 className="h2 fw-black text-uppercase mb-0">
-                                                Maintenance Plans
-                                            </h3>
-                                        </div>
-
-                                        <div className="row g-4 mb-4">
-                                            <div className="col-sm-6">
-                                                <h5
-                                                    className="fw-black text-uppercase small mb-3"
-                                                    style={{ color: "#f97316", letterSpacing: "0.1em" }}
-                                                >
-                                                    Spring AC Tune-Up
-                                                </h5>
-                                                <ul
-                                                    className="list-unstyled mb-0 d-flex flex-column gap-2 opacity-75 small fw-bold text-uppercase"
-                                                    style={{ fontSize: "10px" }}
-                                                >
-                                                    <li>• Clean condenser coils</li>
-                                                    <li>• Check refrigerant levels</li>
-                                                    <li>• Test thermostat accuracy</li>
-                                                    <li>• Inspect connections</li>
-                                                    <li>• Clear condensate drain</li>
-                                                </ul>
-                                            </div>
-                                            <div className="col-sm-6">
-                                                <h5
-                                                    className="fw-black text-uppercase small mb-3"
-                                                    style={{ color: "#f97316", letterSpacing: "0.1em" }}
-                                                >
-                                                    Fall Furnace Tune-Up
-                                                </h5>
-                                                <ul
-                                                    className="list-unstyled mb-0 d-flex flex-column gap-2 opacity-75 small fw-bold text-uppercase"
-                                                    style={{ fontSize: "10px" }}
-                                                >
-                                                    <li>• Inspect heat exchanger</li>
-                                                    <li>• Test ignition system</li>
-                                                    <li>• Adjust gas pressure</li>
-                                                    <li>• Clean burners</li>
-                                                    <li>• Combustion analysis</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        <div
-                                            className="p-3 rounded-4 d-flex align-items-center justify-content-between"
-                                            style={{ backgroundColor: "#ea580c" }}
-                                        >
-                                            <div>
-                                                <p
-                                                    className="fw-black text-uppercase small mb-0"
-                                                    style={{ letterSpacing: "0.1em", fontSize: "10px" }}
-                                                >
-                                                    Why Maintenance Matters
-                                                </p>
-                                                <p
-                                                    className="small fw-bold text-uppercase mb-0 opacity-75"
-                                                    style={{ fontSize: "9px" }}
-                                                >
-                                                    Small $200 problems become $2,000 problems.
-                                                </p>
-                                            </div>
-                                            <button
-                                                className="btn btn-light text-uppercase fw-black small text-primary rounded-3 px-3 py-2 shadow-sm"
-                                                style={{ color: "#ea580c !important", fontSize: "9px" }}
-                                            >
-                                                Save 10%
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Section 4: Who We Serve & Service Areas */}
-                <section className="py-5 bg-white overflow-hidden">
-                    <div className="container py-5">
-                        <div className="row g-5 align-items-center">
-                            {/* Left Column */}
-                            <div className="col-lg-6">
-                                <div className="d-flex flex-column gap-5">
-                                    <div className="d-flex flex-column gap-3">
-                                        <span
-                                            className="fw-bold text-uppercase small d-flex align-items-center gap-2"
-                                            style={{
-                                                color: "#ea580c",
-                                                letterSpacing: "0.2em",
-                                                fontSize: "12px",
-                                            }}
-                                        >
-                                            <div
-                                                style={{ width: "32px", height: "2px", backgroundColor: "#ea580c" }}
-                                            ></div>{" "}
-                                            <SectionIcon size={16} /> WHO WE SERVE
-                                        </span>
-                                        <h2
-                                            className="display-4 fw-black text-dark text-uppercase lh-sm"
-                                            style={{ color: "#010f34", fontWeight: 900 }}
-                                        >
-                                            Residential & Light Commercial
-                                        </h2>
-                                        <p className="text-secondary fw-medium">
-                                            Serving homeowners, property managers, and retail spaces throughout
-                                            the Wasatch Front.
-                                        </p>
-                                    </div>
-
-                                    <div className="d-flex flex-column gap-4">
-                                        {[
-                                            {
-                                                t: "Basement HVAC",
-                                                d: "Extend existing ductwork or add separate zones for remodel projects.",
-                                            },
-                                            {
-                                                t: "Residential Services",
-                                                d: "Primary focus on homes, rentals, and multi-unit properties.",
-                                            },
-                                            {
-                                                t: "Light Commercial",
-                                                d: "Small offices, retail spaces, and small warehouses.",
-                                            },
-                                        ].map((item, i) => (
-                                            <div
-                                                key={i}
-                                                className="d-flex gap-4 p-4 rounded-4 border group"
-                                                style={{
-                                                    backgroundColor: "#f8fafc",
-                                                    borderColor: "transparent",
-                                                    transition: "all 0.3s ease",
-                                                }}
-                                            >
-                                                <div
-                                                    className="d-flex align-items-center justify-content-center rounded-3 shadow-sm flex-shrink-0"
-                                                    style={{
-                                                        width: "48px",
-                                                        height: "48px",
-                                                        backgroundColor: "white",
-                                                        color: "#ea580c",
-                                                        transition: "all 0.3s ease",
-                                                    }}
-                                                >
-                                                    <CheckCircle size={20} />
-                                                </div>
-                                                <div>
-                                                    <h5 className="h6 fw-black text-dark text-uppercase mb-1">
-                                                        {item.t}
-                                                    </h5>
-                                                    <p
-                                                        className="small text-muted fw-bold text-uppercase mb-0 opacity-75"
-                                                        style={{ fontSize: "11px", lineHeight: "1.6" }}
-                                                    >
-                                                        {item.d}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Right Column */}
-                            <div className="col-lg-6">
-                                <div
-                                    className="position-relative p-5 rounded-5 shadow-lg text-white overflow-hidden group"
-                                    style={{ backgroundColor: "#010f34", borderRadius: "40px" }}
-                                >
-                                    <div
-                                        className="position-absolute top-0 end-0 rounded-circle opacity-10"
-                                        style={{
-                                            width: "128px",
-                                            height: "128px",
-                                            backgroundColor: "#ea580c",
-                                            transform: "translate(40px, -40px)",
-                                        }}
-                                    ></div>
-                                    <h4
-                                        className="h3 fw-black text-uppercase mb-4 pb-4 border-bottom border-light border-opacity-10"
-                                        style={{ fontWeight: 900 }}
-                                    >
-                                        Service Areas
-                                    </h4>
-
-                                    <div className="row g-4 mb-5">
-                                        <div className="col-6">
-                                            <div
-                                                className="d-flex flex-column gap-3 opacity-75 small fw-bold text-uppercase"
-                                                style={{ fontSize: "11px", letterSpacing: "0.1em" }}
-                                            >
-                                                <p className="mb-0 text-white">Salt Lake County</p>
-                                                <p className="mb-0 text-white">Utah County</p>
-                                                <p className="mb-0 text-white">Davis County</p>
-                                            </div>
-                                        </div>
-                                        <div className="col-6">
-                                            <div
-                                                className="d-flex flex-column gap-3 opacity-75 small fw-bold text-uppercase"
-                                                style={{ fontSize: "11px", letterSpacing: "0.1em" }}
-                                            >
-                                                <p className="mb-0 text-white">Weber County</p>
-                                                <p className="mb-0 text-white">Summit County</p>
-                                                <p className="mb-0 text-white">Wasatch County</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        className="p-4 rounded-4 border border-light border-opacity-10"
-                                        style={{ backgroundColor: "rgba(255,255,255,0.05)" }}
-                                    >
-                                        <p
-                                            className="small fw-bold text-uppercase mb-3 opacity-50"
-                                            style={{ fontSize: "10px" }}
-                                        >
-                                            SERVING THE COMMUNITIES OF:
-                                        </p>
-                                        <p
-                                            className="small fw-black text-uppercase lh-base mb-0"
-                                            style={{ fontSize: "12px" }}
-                                        >
-                                            West Jordan, Sandy, Draper, South Jordan, SLC, Provo, Orem, Lehi,
-                                            Bountiful, Layton, Ogden, Park City.
-                                        </p>
-                                    </div>
-
-                                    <div
-                                        className="mt-4 d-flex align-items-center gap-3 fw-black text-uppercase small"
-                                        style={{ color: "#f97316" }}
-                                    >
-                                        <Phone size={16} /> 801-970-5797
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* FAQ Section */}
-                <section className="py-5 bg-light">
-                    <div className="container py-5" style={{ maxWidth: "900px" }}>
-                        <div className="text-center mb-5">
-                            <span
-                                className="fw-bold text-uppercase small d-block mb-3"
-                                style={{ color: "var(--accent)", letterSpacing: "0.2em" }}
-                            >
-                                F. A. Q.
-                            </span>
-                            <h2 className="display-5 fw-bold text-dark text-uppercase fst-italic">
-                                Frequently Asked Questions
-                            </h2>
-                        </div>
-
-                        <div className="d-flex flex-column gap-3">
-                            {faqs.map((faq, i) => (
-                                <div
-                                    key={i}
-                                    className="bg-white rounded-4 overflow-hidden shadow-sm border border-light faq-item"
-                                >
-                                    <button
-                                        onClick={() => setActiveFaq(activeFaq === i ? null : i)}
-                                        className="w-100 d-flex justify-content-between align-items-center p-4 text-start border-0 bg-transparent"
-                                    >
-                                        <span
-                                            className="fw-bold text-dark text-uppercase small pe-4"
-                                            style={{ letterSpacing: "-0.025em" }}
-                                        >
-                                            {faq.q}
-                                        </span>
-                                        <div
-                                            className={`rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 transition-all ${activeFaq === i ? "text-white" : "text-dark bg-light"}`}
-                                            style={{
-                                                width: "40px",
-                                                height: "40px",
-                                                backgroundColor: activeFaq === i ? "var(--accent)" : "",
-                                                transform: activeFaq === i ? "rotate(180deg)" : "",
-                                            }}
-                                        >
-                                            {activeFaq === i ? <Minus size={20} /> : <Plus size={20} />}
-                                        </div>
-                                    </button>
-                                    <div
-                                        className={`overflow-hidden transition-all ${activeFaq === i ? "d-block" : "d-none"}`}
-                                    >
-                                        <div className="p-4 pt-0 text-muted small fw-bold text-uppercase border-top border-light lh-base">
-                                            {faq.a}
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
-                {/* No-Risk Promise Section */}
-                <section className="bg-white py-5 border-top border-bottom">
-                    <div className="container py-5 d-flex flex-column align-items-center text-center">
-                        <div className="rounded-circle mb-4 shadow-sm d-flex align-items-center justify-content-center" style={{width: '96px', height: '96px', backgroundColor: '#fff7ed'}}>
-                            <ShieldCheck size={48} style={{color: '#ea580c'}} />
-                        </div>
-                        <h2 className="display-5 fw-black text-uppercase fst-italic mb-4" style={{color: '#010f34', letterSpacing: '-0.025em'}}>
-                            The Resolute No-Risk Promise
-                        </h2>
-                        <p className="fs-4 fw-bold text-secondary text-uppercase opacity-75 lh-base" style={{maxWidth: '800px', letterSpacing: '0.1em'}}>
-                            "If I can't fix it, you don't even pay for the service call. Simple as that. I'll even help find someone who can."
-                        </p>
-                    </div>
-                </section>
-
-                {/* Final CTA */}
-                <section
-                    className="py-5 position-relative overflow-hidden text-center"
-                    style={{
-                        marginTop: "0px",
-                        backgroundColor: "#010f34",
-                        paddingBottom: "8rem!important",
-                    }}
-                >
-                    <div className="container position-relative z-1 py-5">
-                        <h2
-                            className="display-3 fw-black text-white text-uppercase fst-italic mb-4"
-                            style={{ fontWeight: 900 }}
-                        >
-                            Get HVAC Service Today
-                        </h2>
-                        <p
-                            className="text-light opacity-75 fs-5 mx-auto fw-bold text-uppercase mb-5"
-                            style={{ maxWidth: "700px" }}
-                        >
-                            Whether you're dealing with an emergency or planning a new installation,
-                            Travis is ready to help.
-                        </p>
-                        <div className="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-4">
-                            <button
-                                className="btn px-5 py-3 rounded-1 fw-bold text-uppercase shadow hover-lift cta-btn"
-                                style={{ letterSpacing: "0.1em" }}
-                            >
-                                Schedule Service Now
-                            </button>
                             <a
-                                href="tel:801-970-5797"
-                                className="d-flex align-items-center gap-3 phone-btn text-decoration-none group"
+                                href="tel:8019705797"
+                                className="block text-center bg-white text-[#001d3d] py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-orange-600 hover:text-white transition-all text-sm"
                             >
-                                <div
-                                    className="rounded-circle d-flex align-items-center justify-content-center border border-white-50 phone-icon-box"
-                                    style={{ width: "64px", height: "64px", transition: "all 0.3s ease" }}
-                                >
-                                    <Phone size={28} fill="currentColor" />
-                                </div>
-                                <div className="text-start lh-1">
-                                    <p
-                                        className="small fw-bold text-white text-uppercase mb-1 fst-italic"
-                                        style={{ letterSpacing: "0.2em", fontSize: "10px" }}
-                                    >
-                                        Call Travis Directly
-                                    </p>
-                                    <p
-                                        className="h3 fw-black text-white fst-italic mb-0"
-                                        style={{ fontWeight: 900 }}
-                                    >
-                                        801-970-5797
-                                    </p>
-                                </div>
+                                CALL IMMEDIATELY: 801-970-5797
                             </a>
                         </div>
                     </div>
-                    <div
-                        className="position-absolute top-0 start-0 w-100 h-100 opacity-5 pe-none"
-                        style={{
-                            backgroundImage: "radial-gradient(#ffffffec 1px, transparent 1px)",
-                            backgroundSize: "60px 60px",
-                        }}
-                    ></div>
-                </section>
-            </div>
-        </>
+                    <div className="order-1 lg:order-2 space-y-8">
+                        <span className="text-orange-600 font-black uppercase tracking-[0.2em] text-xs">
+                            HEATING SPECIALISTS
+                        </span>
+                        <h2 className="text-4xl font-black text-[#001d3d] uppercase tracking-tight">
+                            Furnace Installation & Repair
+                        </h2>
+                        <div className="space-y-6">
+                            <div className="bg-slate-50 p-6 rounded-2xl border-l-4 border-orange-600">
+                                <p className="font-black text-[#001d3d] uppercase text-sm mb-2">
+                                    What's Included in Installation:
+                                </p>
+                                <ul className="grid sm:grid-cols-2 gap-3">
+                                    {[
+                                        "Proper BTU sizing",
+                                        "High-efficiency options",
+                                        "Permits & Inspections",
+                                        "Old unit disposal",
+                                        "Warranty coverage",
+                                        "Financing (Soon!)",
+                                    ].map((item, i) => (
+                                        <li
+                                            key={i}
+                                            className="flex items-center gap-2 text-slate-500 text-xs font-bold uppercase"
+                                        >
+                                            <Check size={14} className="text-orange-600" /> {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="flex gap-4 p-6 bg-blue-50 rounded-2xl border border-blue-100">
+                                <ShieldCheck className="text-blue-600 shrink-0" />
+                                <p className="text-blue-900 text-xs font-bold uppercase tracking-tight">
+                                    Repair makes sense if heat exchanger is intact and furnace is under 15
+                                    years old.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Section 3: Ductwork & Maintenance */}
+            <section className="py-24 bg-slate-50">
+                <div className="max-w-7xl mx-auto px-4">
+                    <div className="text-center mb-16 space-y-4">
+                        <span className="text-orange-600 font-black uppercase tracking-[0.2em] text-xs">
+                            MAINTENANCE & DUCTS
+                        </span>
+                        <h2 className="text-4xl font-black text-[#001d3d] uppercase tracking-tight">
+                            Keep Your System Efficient
+                        </h2>
+                    </div>
+
+                    <div className="grid lg:grid-cols-2 gap-12">
+                        {/* Ductwork */}
+                        <div className="bg-white p-10 rounded-[40px] shadow-sm border border-slate-100">
+                            <div className="flex items-center gap-4 mb-8">
+                                <Wind className="text-orange-600" size={32} />
+                                <h3 className="text-2xl font-black text-[#001d3d] uppercase">
+                                    Ductwork Services
+                                </h3>
+                            </div>
+                            <p className="text-slate-500 mb-8 font-medium">
+                                Bad ductwork can waste 30% of your energy. We design and seal systems
+                                for basements and remodels.
+                            </p>
+                            <div className="space-y-4">
+                                <div className="flex items-start gap-4">
+                                    <div className="p-2 bg-orange-50 rounded-lg text-orange-600">
+                                        <AlertCircle size={20} />
+                                    </div>
+                                    <div>
+                                        <p className="font-black text-xs uppercase text-slate-800">
+                                            Uneven Heating/Cooling
+                                        </p>
+                                        <p className="text-[10px] text-slate-400 font-bold uppercase">
+                                            Solution: Duct balancing or redesign
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="flex items-start gap-4">
+                                    <div className="p-2 bg-orange-50 rounded-lg text-orange-600">
+                                        <AlertCircle size={20} />
+                                    </div>
+                                    <div>
+                                        <p className="font-black text-xs uppercase text-slate-800">
+                                            Excessive Dust
+                                        </p>
+                                        <p className="text-[10px] text-slate-400 font-bold uppercase">
+                                            Solution: Seal return duct leaks
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="mt-8 flex gap-4 overflow-x-auto pb-4 border-t pt-6">
+                                {["Basement Finishes", "Repair & Sealing", "Zoning"].map((tag, i) => (
+                                    <span
+                                        key={i}
+                                        className="bg-slate-100 px-4 py-2 rounded-full text-[9px] font-black uppercase tracking-widest text-slate-500 whitespace-nowrap"
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Tune-Ups */}
+                        <div className="bg-[#001d3d] p-10 rounded-[40px] text-white shadow-xl relative overflow-hidden">
+                            <div className="relative z-10">
+                                <div className="flex items-center gap-4 mb-8">
+                                    <Wrench className="text-orange-600" size={32} />
+                                    <h3 className="text-2xl font-black uppercase tracking-tight">
+                                        Maintenance Plans
+                                    </h3>
+                                </div>
+                                <div className="grid sm:grid-cols-2 gap-8">
+                                    <div>
+                                        <h5 className="text-orange-500 font-black text-xs uppercase mb-4 tracking-widest">
+                                            Spring AC Tune-Up
+                                        </h5>
+                                        <ul className="text-[10px] font-bold uppercase space-y-2 opacity-80">
+                                            <li>• Clean condenser coils</li>
+                                            <li>• Check refrigerant levels</li>
+                                            <li>• Test thermostat accuracy</li>
+                                            <li>• Inspect connections</li>
+                                            <li>• Clear condensate drain</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 className="text-orange-500 font-black text-xs uppercase mb-4 tracking-widest">
+                                            Fall Furnace Tune-Up
+                                        </h5>
+                                        <ul className="text-[10px] font-bold uppercase space-y-2 opacity-80">
+                                            <li>• Inspect heat exchanger</li>
+                                            <li>• Test ignition system</li>
+                                            <li>• Adjust gas pressure</li>
+                                            <li>• Clean burners</li>
+                                            <li>• Combustion analysis</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div className="mt-10 p-4 bg-orange-600 rounded-2xl flex items-center justify-between">
+                                    <div className="text-left">
+                                        <p className="font-black uppercase text-[10px] tracking-widest">
+                                            Why Maintenance Matters
+                                        </p>
+                                        <p className="text-[9px] font-bold opacity-80 uppercase">
+                                            Small $200 problems become $2,000 problems.
+                                        </p>
+                                    </div>
+                                    <button className="bg-white text-orange-600 px-4 py-2 rounded-xl font-black uppercase text-[9px] hover:bg-slate-900 hover:text-white transition-all shrink-0 ml-4 shadow-lg">
+                                        Save 10%
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Section 4: Who We Serve & Service Areas */}
+            <section className="py-24 bg-white overflow-hidden">
+                <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-20 items-center">
+                    <div className="space-y-12">
+                        <div className="space-y-4">
+                            <span className="text-orange-600 font-black uppercase tracking-[0.2em] text-xs flex items-center gap-2">
+                                <div className="w-8 h-[2px] bg-orange-600"></div> WHO WE SERVE
+                            </span>
+                            <h2 className="text-4xl font-black text-[#001d3d] uppercase tracking-tighter">
+                                Residential & Light Commercial
+                            </h2>
+                            <p className="text-slate-600 font-medium">
+                                Serving homeowners, property managers, and retail spaces throughout the
+                                Wasatch Front.
+                            </p>
+                        </div>
+
+                        <div className="grid gap-6">
+                            {[
+                                {
+                                    t: "Basement HVAC",
+                                    d: "Extend existing ductwork or add separate zones for remodel projects.",
+                                },
+                                {
+                                    t: "Residential Services",
+                                    d: "Primary focus on homes, rentals, and multi-unit properties.",
+                                },
+                                {
+                                    t: "Light Commercial",
+                                    d: "Small offices, retail spaces, and small warehouses.",
+                                },
+                            ].map((item, i) => (
+                                <div
+                                    key={i}
+                                    className="flex gap-6 p-6 bg-slate-50 rounded-3xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-slate-100 group"
+                                >
+                                    <div className="bg-white w-12 h-12 rounded-2xl flex items-center justify-center text-orange-600 shadow-sm group-hover:bg-orange-600 group-hover:text-white transition-colors">
+                                        <CheckCircle size={20} />
+                                    </div>
+                                    <div>
+                                        <h5 className="font-black text-[#001d3d] uppercase tracking-tight mb-1">
+                                            {item.t}
+                                        </h5>
+                                        <p className="text-xs text-slate-500 font-bold uppercase leading-relaxed tracking-tight opacity-70">
+                                            {item.d}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="bg-[#001d3d] p-12 rounded-[60px] text-white relative shadow-2xl overflow-hidden group">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-orange-600/10 rounded-full translate-x-10 -translate-y-10 group-hover:scale-110 transition-transform"></div>
+                        <h4 className="text-2xl font-black uppercase mb-8 border-b border-white/10 pb-4 tracking-tight">
+                            Service Areas
+                        </h4>
+                        <div className="grid grid-cols-2 gap-y-4 gap-x-8 text-xs font-bold uppercase tracking-widest text-slate-400">
+                            <div className="space-y-4">
+                                <p className="text-white">Salt Lake County</p>
+                                <p className="text-white">Utah County</p>
+                                <p className="text-white">Davis County</p>
+                            </div>
+                            <div className="space-y-4">
+                                <p className="text-white">Weber County</p>
+                                <p className="text-white">Summit County</p>
+                                <p className="text-white">Wasatch County</p>
+                            </div>
+                        </div>
+                        <div className="mt-12 bg-white/5 p-6 rounded-3xl border border-white/10">
+                            <p className="text-[10px] opacity-60 mb-4">
+                                SERVING THE COMMUNITIES OF:
+                            </p>
+                            <p className="text-xs font-black tracking-tight leading-relaxed">
+                                West Jordan, Sandy, Draper, South Jordan, SLC, Provo, Orem, Lehi,
+                                Bountiful, Layton, Ogden, Park City.
+                            </p>
+                        </div>
+                        <div className="mt-8 flex items-center gap-4 text-orange-500 font-black uppercase text-xs">
+                            <Phone size={16} /> 801-970-5797
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="py-24 bg-slate-50">
+                <div className="max-w-4xl mx-auto px-4">
+                    <div className="text-center mb-16 space-y-4">
+                        <span className="text-orange-600 font-black uppercase tracking-[0.2em] text-xs">
+                            RESOURCES
+                        </span>
+                        <h2 className="text-4xl font-black text-[#001d3d] uppercase tracking-tight italic text-balance">
+                            Frequently Asked Questions
+                        </h2>
+                    </div>
+
+                    <div className="space-y-5">
+                        {faqs.map((faq, i) => (
+                            <div
+                                key={i}
+                                className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 group hover:border-orange-200 transition-colors"
+                            >
+                                <button
+                                    onClick={() => setActiveFaq(activeFaq === i ? null : i)}
+                                    className="w-full flex justify-between items-center p-7 text-left transition-colors"
+                                >
+                                    <span className="font-black text-[#001d3d] uppercase tracking-tight pr-8 text-sm">
+                                        {faq.q}
+                                    </span>
+                                    <div
+                                        className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 ${activeFaq === i ? "bg-orange-600 text-white rotate-180" : "bg-slate-50 text-[#001d3d] group-hover:bg-orange-50"}`}
+                                    >
+                                        {activeFaq === i ? <Minus size={20} /> : <Plus size={20} />}
+                                    </div>
+                                </button>
+                                <div
+                                    className={`overflow-hidden transition-all duration-500 ease-in-out ${activeFaq === i ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+                                >
+                                    <div className="p-7 pt-0 text-slate-500 font-bold text-sm border-t border-slate-50 leading-relaxed uppercase tracking-tight">
+                                        {faq.a}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Risk Free Promise */}
+            <section className="bg-white py-20 border-y border-slate-100">
+                <div className="max-w-7xl mx-auto px-4 flex flex-col items-center text-center">
+                    <div className="bg-orange-50 p-6 rounded-full mb-6 shadow-inner">
+                        <ShieldCheck className="text-orange-600" size={48} />
+                    </div>
+                    <h2 className="text-3xl font-black text-[#001d3d] uppercase tracking-tight italic mb-4">
+                        The Resolute No-Risk Promise
+                    </h2>
+                    <p className="text-xl font-bold text-slate-500 uppercase tracking-widest max-w-2xl leading-snug">
+                        "If I can't fix it, you don't even pay for the service call. Simple as
+                        that. I'll even help find someone who can."
+                    </p>
+                </div>
+            </section>
+
+            {/* Final CTA */}
+            <section className="py-32 bg-[#001d3d] relative overflow-hidden text-center">
+                <div className="max-w-7xl mx-auto px-4 relative z-10 space-y-10">
+                    <h2 className="text-4xl md:text-7xl font-black text-white uppercase italic tracking-tighter">
+                        Get HVAC Service Today
+                    </h2>
+                    <p className="text-slate-400 text-xl max-w-2xl mx-auto font-bold uppercase tracking-tight opacity-80">
+                        Free estimates on installations and major repairs. Travis is ready to help
+                        Salt Lake homes.
+                    </p>
+                    <div className="flex flex-col sm:flex-row justify-center items-center gap-8 pt-6">
+                        <button className="bg-orange-600 text-white px-12 py-6 rounded-lg font-black uppercase tracking-[0.2em] shadow-2xl shadow-orange-600/40 hover:bg-white hover:text-orange-600 transition-all text-xs">
+                            Schedule Service Now
+                        </button>
+                        <div className="flex items-center gap-5 group cursor-pointer">
+                            <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-all shadow-xl">
+                                <Phone size={28} fill="currentColor" />
+                            </div>
+                            <div className="text-left leading-none">
+                                <p className="text-[10px] font-black uppercase text-slate-500 tracking-[0.3em] mb-2 italic text-balance">
+                                    Speak with Travis
+                                </p>
+                                <p className="text-3xl font-black text-white italic tracking-tighter">
+                                    801-970-5797
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#ffffff_2px,transparent_2px)] [background-size:60px_60px]"></div>
+            </section>
+        </div>
     );
 };
 

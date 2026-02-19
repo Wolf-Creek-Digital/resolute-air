@@ -7,7 +7,7 @@ import Cta from "./Cta";
 
 const About = () => {
     return (
-        <div className="font-sans text-dark leading-normal">
+        <div className="font-sans text-gray-900 leading-normal">
             <MeetTravis />
             <Difference />
             <Testimonials />

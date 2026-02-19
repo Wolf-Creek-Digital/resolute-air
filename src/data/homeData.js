@@ -1,4 +1,4 @@
-import { ThermometerSnowflake, Flame, Construction, Wrench, Volume2 } from 'lucide-react';
+import { ThermometerSnowflake, Flame, Construction, Wrench, Volume2, Shield, User, Hammer, Clock, BadgeCheck } from 'lucide-react';
 import React from 'react';
 
 export const servicesData = [
@@ -39,23 +39,28 @@ export const servicesData = [
   }
 ];
 
-export const testimonialsData = [
-  {
-    text: "Travis did a fantastic job with the HVAC in my basement. He did honest and fair work and if you're reading this call him already so he can help you too!",
-    author: "Basement Renovation",
-    location: "West Jordan",
-    rating: 5
-  },
-  {
-    text: "Travis is such an awesome guy. Fixed my HVAC when it wouldn't turn on. He solved it quick and kept his time costs low. 1000% use him again!",
-    author: "Emergency Repair",
-    location: "Salt Lake County",
-    rating: 5
-  },
-  {
-    text: "Super helpful, great price, and even offered suggestions on things we needed help with. Absolutely will be calling in the future.",
-    author: "Tune-Up & Ductwork",
-    location: "Utah County",
-    rating: 5
-  }
+export   const testimonialsData = [
+    {
+      text: "Travis did a fantastic job with the HVAC in my basement. He did honest and fair work and if you're reading this call him already so he can help you too!",
+      author: "Basement Renovation",
+      location: "West Jordan"
+    },
+    {
+      text: "Travis is such an awesome guy. Fixed my HVAC when it wouldn't turn on. He solved it quick and kept his time costs low. 1000% use him again!",
+      author: "Emergency Repair",
+      location: "Salt Lake County"
+    },
+    {
+      text: "Super helpful, great price, and even offered suggestions on things we needed help with. Absolutely will be calling in the future.",
+      author: "Tune-Up & Ductwork",
+      location: "Utah County"
+    }
+  ];
+
+  export const trustBadges = [
+  { icon: <Shield size={24} />, text: "Licensed & Insured" },
+  { icon: <User size={24} />, text: "Owner-Operator (Travis)" },
+  { icon: <Hammer size={24} />, text: "15+ Years Experience" },
+  { icon: <Clock size={24} />, text: "24/7 Emergency Service" },
+  { icon: <BadgeCheck size={24} />, text: "Honest Pricing" }
 ];

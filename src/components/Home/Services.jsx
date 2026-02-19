@@ -5,54 +5,41 @@ import Image from 'next/image';
 import SectionIcon from '../Common/SectionIcon';
 import { servicesData } from '../../data/homeData';
 
+
 const Services = () => {
   return (
-    <section className="py-5 relative">
-       {/* Optimized Background Image using Next.js Image */}
-       <div className="absolute inset-0 z-[-1]">
-          <Image 
-            src="/assets/img/service_bg_1.svg" 
-            alt="" 
-            fill 
-            className="object-cover"
-            quality={90}
-            priority
-          />
-       </div>
-
-       <div className="container py-5 relative z-10">
-          <div className="d-flex flex-column flex-md-row align-items-md-end justify-content-between mb-5 gap-4">
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
-              <h2 className="fs-2 font-bold text-slate-900 mb-3 d-flex align-items-center gap-2">
-                <SectionIcon size={24} />
-                Common HVAC Problems We Solve
-              </h2>
-              <p className="fs-5 text-slate-600 mb-0">Fast solutions for Utah's unpredictable weather.</p>
+              <h2 className="text-4xl font-bold text-slate-900 mb-4">Common HVAC Problems We Solve</h2>
+              <p className="text-xl text-slate-600">Fast solutions for Utah's unpredictable weather.</p>
             </div>
-            <button className="h3_btn_outline bg-white border border-slate-200 text-slate-700 px-4 py-3 rounded-xl font-semibold hover:bg-slate-100 transition-colors">
+            <button className="bg-white border border-slate-200 text-slate-700 px-6 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">
               View All HVAC Services
             </button>
           </div>
 
-          <div className="row g-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {servicesData.map((service, i) => (
-              <div key={i} className="col-lg-4 col-md-6">
-                 <div className="h3_service_card bg-white p-4 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 d-flex flex-column h-100 group">
-                    <div className="mb-4 group-hover-scale transition-transform duration-300">
-                        {service.icon}
-                    </div>
-                    <h3 className="fs-4 font-bold text-slate-900 mb-3">{service.title}</h3>
-                    <p className="text-slate-600 mb-4 flex-grow-1 leading-relaxed">{service.desc}</p>
-                    <a href={`tel:${service.phone.replace(/-/g, '')}`} className="d-flex align-items-center justify-content-between text-orange-600 font-bold border-top border-slate-50 pt-4 hover:text-orange-700 text-decoration-none">
-                        {service.cta}
-                        <ChevronRight size={20} />
-                    </a>
-                 </div>
+              <div key={i} className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+                <div className="mb-6 group-hover:scale-110 transition-transform duration-300">
+                  {service.icon}
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">{service.title}</h3>
+                <p className="text-slate-600 mb-8 flex-grow leading-relaxed">{service.desc}</p>
+                <a 
+                  href={`tel:${service.phone.replace(/-/g, '')}`} 
+                  className="flex items-center justify-between text-orange-600 font-bold border-t border-slate-50 pt-6 hover:text-orange-700"
+                >
+                  {service.cta}
+                  <ChevronRight size={20} />
+                </a>
               </div>
             ))}
           </div>
-       </div>
-    </section>
+        </div>
+      </section>
   );
 };
 

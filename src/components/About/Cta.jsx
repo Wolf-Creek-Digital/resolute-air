@@ -4,62 +4,28 @@ import { Phone } from "lucide-react";
 
 const Cta = () => {
     return (
-        <>
-            <style jsx>{`
-            .cta-btn {
-             transition: all 0.3s ease;
-            }
-            .cta-btn:hover {
-             background-color: #010f34 !important;
-             transform: translateY(-2px);
-             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            }
-            .emergency-group:hover .icon-circle {
-             background-color: var(--accent) !important;
-             color: white !important;
-            }
-            .emergency-group .icon-circle {
-             transition: all 0.3s ease;
-            }
-            `}</style>
-            <section className="py-5 bg-white mb-5">
-                <div className="container text-center py-5">
-                    <h2 className="display-5 fw-bold text-dark text-uppercase fst-italic mb-5">
-                        Ready to Work with an HVAC <br /> Contractor You Can Trust?
-                    </h2>
-                    <div className="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-4">
-                        <button
-                            className="btn btn-lg text-white rounded-3 px-5 py-4 fw-bold text-uppercase shadow-lg cta-btn"
-                            style={{ backgroundColor: "var(--accent)", letterSpacing: "0.1em" }}
-                        >
-                            Schedule Service with Travis
-                        </button>
-                        <div className="d-flex align-items-center gap-3 group cursor-pointer emergency-group">
-                            <div
-                                className="rounded-circle d-flex align-items-center justify-content-center shadow icon-circle"
-                                style={{
-                                    width: "60px",
-                                    height: "60px",
-                                    backgroundColor: "#fff4e6",
-                                    color: "var(--accent)",
-                                }}
-                            >
-                                <Phone size={24} fill="currentColor" />
-                            </div>
-                            <div className="text-start">
-                                <p
-                                    className="small fw-bold text-muted text-uppercase m-0"
-                                    style={{ letterSpacing: "0.1em", fontSize: "10px" }}
-                                >
-                                    Emergency Help
-                                </p>
-                                <p className="fs-4 fw-bold text-dark m-0">801-970-5797</p>
-                            </div>
-                        </div>
-                    </div>
+
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+           <h2 className="text-4xl md:text-6xl font-black text-[#001d3d] uppercase tracking-tighter mb-8 italic text-balance">
+             Ready to Work with an HVAC <br/> Contractor You Can Trust?
+           </h2>
+           <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+              <button className="bg-orange-600 text-white px-12 py-5 rounded-lg font-black uppercase tracking-[0.2em] shadow-2xl shadow-orange-600/30 hover:bg-[#001d3d] transition-all">
+                Schedule Service with Travis
+              </button>
+              <div className="flex items-center gap-4 group cursor-pointer">
+                <div className="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-all shadow-xl">
+                  <Phone size={24} fill="currentColor" />
                 </div>
-            </section>
-        </>
+                <div className="text-left">
+                  <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Emergency Help</p>
+                  <p className="text-xl font-black text-[#001d3d]">801-970-5797</p>
+                </div>
+              </div>
+           </div>
+        </div>
+      </section>
     );
 };
 

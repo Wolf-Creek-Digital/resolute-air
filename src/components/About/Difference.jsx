@@ -7,110 +7,60 @@ const Difference = () => {
   const diffItems = [
     {
       title: "I Answer My Own Phone",
-      desc:
-        "Talk to Travis—not a call center. I'll answer questions and show up myself.",
-      icon: <PhoneIncoming size={32} />,
+      desc: "Talk to Travis—not a call center. I'll answer questions and show up myself.",
+      icon: PhoneIncoming
     },
     {
       title: "No Commissions",
-      desc:
-        "Zero incentive to upsell you. Honest repairs over expensive replacements.",
-      icon: <BadgeDollarSign size={32} />,
+      desc: "Zero incentive to upsell you. Honest repairs over expensive replacements.",
+      icon: BadgeDollarSign
     },
     {
       title: "I Live Here Too",
       desc: "Based in West Jordan. Serving neighbors with direct accountability.",
-      icon: <Home size={32} />,
+      icon: Home
     },
     {
       title: "15+ Years Pro",
-      desc:
-        "Working on HVAC systems since before smartphones existed. Expert quality.",
-      icon: <Award size={32} />,
-    },
+      desc: "Working on HVAC systems since before smartphones existed. Expert quality.",
+      icon: Award
+    }
   ];
 
   return (
-    <>
-      <style jsx>{`
-        .hover-lift {
-          transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-        .hover-lift:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
-          border-color: var(--accent) !important;
-        }
+   <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 text-center mb-16">
+          <span className="text-orange-600 font-black uppercase tracking-[0.2em] text-xs">WHY CHOOSE US</span>
+          <h2 className="text-4xl font-black text-[#001d3d] uppercase tracking-tight mt-2">What Makes Me Different?</h2>
+        </div>
 
-        .diff-card .icon-box {
-          transition: all 0.3s ease;
-          color: var(--accent);
-          background-color: #f8f9fa;
-        }
-        .diff-card:hover .icon-box {
-          background-color: var(--accent);
-          color: white;
-          border-color: var(--accent) !important;
-        }
-
-        .diff-card .number-badge {
-          transition: all 0.3s ease;
-          background-color: #f8f9fa;
-          color: #dee2e6;
-        }
-        .diff-card:hover .number-badge {
-          background-color: rgba(226, 109, 38, 0.1);
-          color: var(--accent);
-        }
-      `}</style>
-      <section className="py-5 bg-light">
-        <div className="container py-5">
-          <div className="text-center mb-5">
-            <span
-              className="fw-bold text-uppercase small d-block mb-2"
-              style={{ letterSpacing: "0.2em", color: "var(--accent)" }}
-            >
-              <SectionIcon size={16} />
-              WHY CHOOSE US
-            </span>
-            <h2 className="display-6 fw-bold text-dark text-uppercase">
-              What Makes Me Different?
-            </h2>
-          </div>
-
-          <div className="row g-4">
-            {diffItems.map((item, i) => (
-              <div key={i} className="col-md-6 col-lg-3">
-                <div className="bg-white p-4 p-xl-5 rounded-4 shadow-sm h-100 position-relative hover-lift border-bottom border-4 border-transparent diff-card">
-                  <div
-                    className="mb-4 d-flex align-items-center justify-content-center mx-auto rounded-circle border border-2 border-light shadow-sm icon-box"
-                    style={{ width: "80px", height: "80px" }}
-                  >
-                    {item.icon}
-                  </div>
-                  <h3 className="h5 fw-bold text-dark mb-3 text-uppercase text-center">
-                    {item.title}
-                  </h3>
-                  <p className="text-muted small text-center mb-0 lh-base">
-                    {item.desc}
-                  </p>
-                  <div
-                    className="position-absolute top-0 end-0 d-flex align-items-center justify-content-center fw-bold fs-4 number-badge"
-                    style={{
-                      width: "60px",
-                      height: "60px",
-                      borderBottomLeftRadius: "30px",
-                    }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
-                </div>
+        <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {diffItems.map((item, i) => (
+            <div key={i} className="bg-white p-10 rounded-2xl shadow-xl hover:translate-y-[-10px] transition-all duration-500 relative group overflow-hidden border-b-4 border-transparent hover:border-orange-600 cursor-default">
+              {/* Icon Container with Fixed Hover State */}
+              <div className="mb-8 bg-slate-100 w-24 h-24 rounded-full flex items-center justify-center mx-auto border-4 border-white shadow-inner group-hover:bg-orange-600 transition-all duration-300">
+                <item.icon 
+                  size={32} 
+                  className="text-orange-600 group-hover:text-white transition-colors duration-300" 
+                />
               </div>
-            ))}
-          </div>
+              
+              <h3 className="text-lg font-black text-[#001d3d] mb-4 uppercase tracking-tight text-center leading-tight">
+                {item.title}
+              </h3>
+              
+              <p className="text-slate-500 text-sm leading-relaxed text-center font-medium">
+                {item.desc}
+              </p>
+
+              {/* Step Number Badge */}
+              <div className="absolute top-0 right-0 w-14 h-14 bg-slate-50 flex items-center justify-center font-black text-slate-200 text-2xl rounded-bl-[2rem] group-hover:bg-orange-100 group-hover:text-orange-600 transition-all duration-300">
+                {String(i + 1).padStart(2, '0')}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
-    </>
   );
 };
 

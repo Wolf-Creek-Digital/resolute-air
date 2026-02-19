@@ -7,7 +7,7 @@ const SectionIcon = ({ size = 24, className = "" }) => {
     <Image
       src="/assets/img/icons/fan.svg"
       alt=""
-      className={`cs_section_subheading_icon ${className}`}
+      className={`animate-[spin_10s_linear_infinite] inline-block align-middle mr-2 ${className}`}
       width={size}
       height={size}
     />

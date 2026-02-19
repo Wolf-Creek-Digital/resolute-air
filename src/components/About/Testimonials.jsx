@@ -3,141 +3,68 @@ import React from "react";
 import { Star, ChevronRight, MessageSquare } from "lucide-react";
 
 const Testimonials = () => {
-    const aboutTestimonials = [
-        {
-            text:
-                "Travis has done an awesome job working on my ac units at my apartments. He was efficient to get the tenants comfortable. He has replaced a condenser and serviced the other units.",
-            author: "Property Owner",
-            location: "Multi-Unit Building",
-            rating: 5,
-        },
-        {
-            text:
-                "Travis has far been my number one go-to HVAC guy! He is responsive, clear, transparent, trustworthy, and reliable. For simple questions or big projects he has helped me.",
-            author: "Real Estate Investor",
-            location: "Multiple Properties",
-            rating: 5,
-        },
-    ];
+  const aboutTestimonials = [
+    {
+      text: "Travis has done an awesome job working on my ac units at my apartments. He was efficient to get the tenants comfortable. He has replaced a condenser and serviced the other units.",
+      author: "Property Owner",
+      location: "Multi-Unit Building",
+      rating: 5
+    },
+    {
+      text: "Travis has far been my number one go-to HVAC guy! He is responsive, clear, transparent, trustworthy, and reliable. For simple questions or big projects he has helped me.",
+      author: "Real Estate Investor",
+      location: "Multiple Properties",
+      rating: 5
+    }
+  ];
 
     return (
-        <>
-            <style jsx>{`
-             .testimonial-card-icon {
-              box-shadow: 0 10px 20px rgba(226, 109, 38, 0.3);
-             }
-            `}</style>
-            <section
-                className="py-5 position-relative overflow-hidden"
-                style={{ backgroundColor: "#010f34" }}
-            >
-                {/* Background decoration */}
-                <div
-                    className="position-absolute top-0 end-0 h-100 bg-white opacity-10"
-                    style={{ width: "50%", transform: "skewX(-30deg) translateX(290px)" }}
-                ></div>
+              <section className="bg-[#001d3d] py-24 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-900/40 skew-x-[-20deg] translate-x-20"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-20 items-center relative z-10">
+          <div className="space-y-8">
+            <div className="space-y-2">
+              <span className="text-orange-600 font-black uppercase tracking-[0.2em] text-xs">TESTIMONIALS</span>
+              <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight">Our Clients Feedback</h2>
+              <div className="flex gap-1">
+                {[...Array(5)].map((_, i) => <Star key={i} className="text-orange-500 fill-orange-500" size={16} />)}
+              </div>
+            </div>
+            
+            <p className="text-slate-300 text-lg leading-relaxed italic">
+              "Honest service that keeps Utah families comfortable without draining their savings. I want you to feel confident calling me when something breaks."
+            </p>
 
-                <div className="container py-5 position-relative z-1">
-                    <div className="row g-5 align-items-center">
-                        <div className="col-lg-6 text-white space-y-4">
-                            <div className="mb-4">
-                                <span
-                                    className="fw-bold text-uppercase small d-block mb-2"
-                                    style={{ letterSpacing: "0.2em", color: "var(--accent)" }}
-                                >
-                                    TESTIMONIALS
-                                </span>
-                                <h2 className="display-5 fw-bold text-white text-uppercase">
-                                    Our Clients Feedback
-                                </h2>
-                                <div className="d-flex gap-1 mt-3" style={{ color: "var(--accent)" }}>
-                                    {[...Array(5)].map((_, i) => (
-                                        <Star key={i} size={16} fill="currentColor" />
-                                    ))}
-                                </div>
-                            </div>
+            <div className="flex gap-4">
+              <button className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-orange-600 hover:border-orange-600 transition-all">
+                <ChevronRight size={24} className="rotate-180" />
+              </button>
+              <button className="w-12 h-12 rounded-full bg-orange-600 flex items-center justify-center text-white hover:bg-white hover:text-orange-600 transition-all">
+                <ChevronRight size={24} />
+              </button>
+            </div>
+          </div>
 
-                            <p className="fs-5 fst-italic text-light opacity-75 mb-4">
-                                "Honest service that keeps Utah families comfortable without draining
-                                their savings. I want you to feel confident calling me when something
-                                breaks."
-                            </p>
-
-                            <div className="d-flex gap-3">
-                                <button
-                                    className="btn btn-outline-light rounded-circle p-0 d-flex align-items-center justify-content-center transition-all bg-transparent hover:bg-white hover:text-dark"
-                                    style={{ width: "50px", height: "50px" }}
-                                >
-                                    <ChevronRight
-                                        size={24}
-                                        className="rotate-180"
-                                        style={{ transform: "rotate(180deg)" }}
-                                    />
-                                </button>
-                                <button
-                                    className="btn rounded-circle p-0 d-flex align-items-center justify-content-center text-white border-0 transition-all hover-scale"
-                                    style={{
-                                        width: "50px",
-                                        height: "50px",
-                                        backgroundColor: "var(--accent)",
-                                    }}
-                                >
-                                    <ChevronRight size={24} />
-                                </button>
-                            </div>
-                        </div>
-
-                        <div className="col-lg-6">
-                            <div className="row g-4">
-                                {aboutTestimonials.map((t, i) => (
-                                    <div key={i} className="col-md-6">
-                                        <div className="bg-white p-4 rounded-4 shadow position-relative mt-4 h-100">
-                                            <div
-                                                className="position-absolute top-0 start-0 translate-middle-y ms-4 d-flex align-items-center justify-content-center rounded-3 testimonial-card-icon"
-                                                style={{
-                                                    width: "50px",
-                                                    height: "50px",
-                                                    backgroundColor: "var(--accent)",
-                                                    marginTop: "-10px",
-                                                }}
-                                            >
-                                                <MessageSquare size={24} className="text-white" />
-                                            </div>
-                                            <p className="text-muted small fst-italic mb-4 mt-4 pt-2">
-                                                "{t.text}"
-                                            </p>
-                                            <div className="d-flex align-items-center gap-3 pt-3 border-top border-light mt-auto">
-                                                <div
-                                                    className="rounded-circle bg-light d-flex align-items-center justify-content-center fw-bold text-dark flex-shrink-0"
-                                                    style={{ width: "40px", height: "40px" }}
-                                                >
-                                                    {t.author[0]}
-                                                </div>
-                                                <div>
-                                                    <h4 className="small fw-bold text-dark text-uppercase m-0">
-                                                        {t.author}
-                                                    </h4>
-                                                    <p
-                                                        className="fw-bold text-uppercase m-0"
-                                                        style={{
-                                                            fontSize: "10px",
-                                                            color: "var(--accent)",
-                                                            letterSpacing: "0.1em",
-                                                        }}
-                                                    >
-                                                        {t.location}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {aboutTestimonials.map((t, i) => (
+              <div key={i} className="bg-white p-8 rounded-xl shadow-2xl relative">
+                <div className="absolute -top-4 left-6 bg-orange-600 text-white w-10 h-10 flex items-center justify-center rounded-lg shadow-lg">
+                  <MessageSquare size={20} />
                 </div>
-            </section>
-        </>
+                <p className="text-slate-600 text-sm italic mb-6 leading-relaxed pt-2">"{t.text}"</p>
+                <div className="flex items-center gap-4 border-t border-slate-100 pt-6">
+                  <div className="w-10 h-10 bg-slate-200 rounded-full flex items-center justify-center font-black text-[#001d3d] uppercase">{t.author[0]}</div>
+                  <div>
+                    <h4 className="text-sm font-black text-[#001d3d] uppercase leading-none mb-1">{t.author}</h4>
+                    <p className="text-[10px] font-black uppercase text-orange-600 tracking-widest">{t.location}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     );
 };
 

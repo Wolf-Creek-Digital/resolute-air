@@ -1,18 +1,17 @@
 import { Outfit, DM_Sans } from "next/font/google";
-import "./globals.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import "slick-carousel/slick/slick.css";
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import "./globals.css";
+import "./styles.css";
+// import "slick-carousel/slick/slick.css";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header";
 
 const outfit = Outfit({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
   variable: '--heading-font',
 });
 const dm_Sans = DM_Sans({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
   variable: '--body-color-font',
 });
 

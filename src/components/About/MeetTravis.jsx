@@ -6,196 +6,68 @@ import SectionIcon from "../Common/SectionIcon";
 const MeetTravis = () => {
   return (
     <>
-      <style jsx>{`
-        .cta-btn {
-          transition: all 0.3s ease;
-        }
-        .cta-btn:hover {
-          background-color: #010f34 !important;
-          transform: translateY(-2px);
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        .hidden { display: none !important; }
-        .block { display: block !important; }
-        @media (min-width: 992px) {
-          .lg\\:hidden { display: none !important; }
-          .lg\\:block { display: block !important; }
-        }
-      `}</style>
-      <section className="py-5 my-5">
-        <div className="container">
-          <div className="row g-5 align-items-center">
-            <div className="col-lg-6 position-relative">
-              {/* Collage frames */}
-              <div
-                className="position-relative z-1 w-85 mx-auto overflow-hidden shadow-lg border border-5 border-white hidden lg:block"
-                style={{
-                  borderRadius: "100px 100px 100px 100px",
-                  transform: "rotate(-2deg)",
-                }}
-              >
-                {/* Reverting rotation for image content if needed */}
-                <div
-                  style={{ borderRadius: "100px", overflow: "hidden" }}
-                  className="bg-light"
-                >
-                  <img
-                    src="/assets/v3/home-v3-differences.avif"
-                    alt="Travis working on HVAC"
-                    className="img-fluid w-100 object-fit-cover"
-                    style={{ aspectRatio: "4/5" }}
-                  />
-                </div>
-              </div>
+      <section className="py-24 max-w-7xl mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div className="relative">
+            <div className="relative z-10 w-[85%] rounded-t-[100px] rounded-b-[100px] overflow-hidden border-[15px] border-white shadow-2xl">
+              <img 
+                src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=800" 
+                alt="Travis working on HVAC" 
+                className="w-full h-full object-cover aspect-[4/5]"
+              />
+            </div>
+            <div className="absolute top-10 right-0 grid grid-cols-4 gap-2 opacity-30">
+              {[...Array(16)].map((_, i) => <div key={i} className="w-2 h-2 rounded-full bg-orange-600"></div>)}
+            </div>
+            <div className="absolute bottom-10 right-4 bg-white p-6 rounded-2xl shadow-2xl flex items-center gap-4 z-20 border-l-8 border-orange-600">
+               <span className="text-5xl font-black text-orange-600">15+</span>
+               <div className="flex flex-col leading-none">
+                 <span className="text-xs font-black uppercase text-slate-400 tracking-widest">Years Of</span>
+                 <span className="text-sm font-black uppercase text-[#001d3d]">Experience</span>
+               </div>
+            </div>
+          </div>
 
-              {/* Decorative Dots Pattern */}
-              <div
-                className="position-absolute top-0 end-0 me-4 mt-4 d-grid pe-none opacity-25"
-                style={{
-                  gridTemplateColumns: "repeat(4, 1fr)",
-                  gap: "8px",
-                  zIndex: 0,
-                }}
-              >
-                {[...Array(16)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="rounded-circle"
-                    style={{
-                      width: "8px",
-                      height: "8px",
-                      backgroundColor: "var(--accent)",
-                    }}
-                  ></div>
-                ))}
-              </div>
+          <div className="space-y-8">
+            <div className="space-y-2">
+              <span className="text-orange-600 font-black uppercase tracking-[0.2em] text-xs flex items-center gap-2">
+                <div className="w-8 h-[2px] bg-orange-600"></div> ABOUT US
+              </span>
+              <h2 className="text-4xl md:text-5xl font-black text-[#001d3d] uppercase tracking-tight leading-tight">
+                Meet Travis Angell: <br/>Your HVAC Expert & Neighbor
+              </h2>
+            </div>
+            
+            <p className="text-slate-600 text-lg leading-relaxed font-medium">
+              I've been working on HVAC systems for over 15 years, and I've seen it all—the good, the bad, and the dishonest. I started Resolute Heating & Air because I was tired of watching homeowners get pressured into expensive upgrades they didn't need.
+            </p>
 
-              {/* 15+ Experience Badge */}
-              <div
-                className="position-absolute bottom-0 end-0 bg-white p-4 rounded-4 shadow-lg d-flex align-items-center gap-3 z-2 border-start border-5"
-                style={{
-                  borderColor: "var(--accent)",
-                  right: "10%",
-                  marginBottom: "40px",
-                }}
-              >
-                <span
-                  className="display-4 fw-bold lh-1"
-                  style={{ color: "var(--accent)", fontSize: "3.5rem" }}
-                >
-                  15+
-                </span>
-                <div className="d-flex flex-column lh-1">
-                  <span
-                    className="small fw-bold text-muted text-uppercase mb-1"
-                    style={{ letterSpacing: "0.1em", fontSize: "10px" }}
-                  >
-                    Years Of
-                  </span>
-                  <span className="fw-bold text-dark text-uppercase fs-6">
-                    Experience
-                  </span>
-                </div>
+            <div className="space-y-4">
+              <div className="flex items-center gap-4 text-[#001d3d] font-bold">
+                <div className="w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center text-orange-600"><CheckCircle size={16} /></div>
+                Ventilation System Maintenance
+              </div>
+              <div className="flex items-center gap-4 text-[#001d3d] font-bold">
+                <div className="w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center text-orange-600"><CheckCircle size={16} /></div>
+                Honest Diagnostic & Fair Pricing
+              </div>
+              <div className="flex items-center gap-4 text-[#001d3d] font-bold">
+                <div className="w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center text-orange-600"><CheckCircle size={16} /></div>
+                Owner-Operated (I'm on every job)
               </div>
             </div>
 
-            <div className="col-lg-6">
-              <div className="mb-4">
-                <span
-                  className="fw-bold text-uppercase d-flex align-items-center gap-2 small mb-2"
-                  style={{ letterSpacing: "0.2em", color: "var(--accent)" }}
-                >
-                  <SectionIcon size={20} /> ABOUT US
-                </span>
-                <h2 className="display-5 fw-bold text-dark text-uppercase lh-sm">
-                  Meet Travis Angell: <br />
-                  Your HVAC Expert & Neighbor
-                </h2>
-              </div>
-
-              <p className="text-muted fs-5 mb-4 fw-medium">
-                I've been working on HVAC systems for over 15 years, and I've seen it
-                all—the good, the bad, and the dishonest. I started Resolute Heating &
-                Air because I was tired of watching homeowners get pressured into
-                expensive upgrades they didn't need.
-              </p>
-
-              <div className="d-flex flex-column gap-3 mb-5">
-                <div className="d-flex align-items-center gap-3 text-dark fw-bold">
-                  <div
-                    className="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
-                    style={{
-                      width: "24px",
-                      height: "24px",
-                      backgroundColor: "rgba(226, 109, 38, 0.1)",
-                      color: "var(--accent)",
-                    }}
-                  >
-                    <CheckCircle size={16} />
-                  </div>
-                  Ventilation System Maintenance
+            <div className="flex flex-col sm:flex-row items-center gap-8 pt-6">
+              <button className="bg-orange-600 text-white px-10 py-4 rounded font-black uppercase tracking-widest hover:bg-[#001d3d] transition-all flex items-center gap-2">
+                CALL NOW <ArrowRight size={20} />
+              </button>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-orange-600 p-1">
+                  <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=100" alt="Travis headshot" className="rounded-full object-cover w-full h-full" />
                 </div>
-                <div className="d-flex align-items-center gap-3 text-dark fw-bold">
-                  <div
-                    className="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
-                    style={{
-                      width: "24px",
-                      height: "24px",
-                      backgroundColor: "rgba(226, 109, 38, 0.1)",
-                      color: "var(--accent)",
-                    }}
-                  >
-                    <CheckCircle size={16} />
-                  </div>
-                  Honest Diagnostic & Fair Pricing
-                </div>
-                <div className="d-flex align-items-center gap-3 text-dark fw-bold">
-                  <div
-                    className="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
-                    style={{
-                      width: "24px",
-                      height: "24px",
-                      backgroundColor: "rgba(226, 109, 38, 0.1)",
-                      color: "var(--accent)",
-                    }}
-                  >
-                    <CheckCircle size={16} />
-                  </div>
-                  Owner-Operated (I'm on every job)
-                </div>
-              </div>
-
-              <div className="d-flex flex-column flex-sm-row align-items-center gap-4">
-                <a
-                  href="tel:8019705797"
-                  className="btn btn-lg text-white rounded-pill px-5 py-3 fw-bold text-uppercase shadow-sm d-flex align-items-center gap-2 cta-btn"
-                  style={{ backgroundColor: "var(--accent)", letterSpacing: "0.1em" }}
-                >
-                  CALL NOW <ArrowRight size={20} />
-                </a>
-                <div className="d-flex align-items-center gap-3">
-                  <div
-                    className="rounded-circle overflow-hidden border border-2 p-1"
-                    style={{
-                      borderColor: "var(--accent)",
-                      width: "60px",
-                      height: "60px",
-                    }}
-                  >
-                    <img
-                      src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=100"
-                      alt="Travis"
-                      className="rounded-circle w-100 h-100 object-fit-cover"
-                    />
-                  </div>
-                  <div>
-                    <p className="fw-bold text-dark m-0 lh-1 text-uppercase">
-                      Travis Angell
-                    </p>
-                    <p className="small text-muted fw-bold m-0">
-                      Founder & HVAC Technician
-                    </p>
-                  </div>
+                <div>
+                  <p className="font-black text-[#001d3d] leading-none uppercase tracking-tight">Travis Angell</p>
+                  <p className="text-xs text-slate-400 font-bold">Founder & HVAC Technician</p>
                 </div>
               </div>
             </div>
