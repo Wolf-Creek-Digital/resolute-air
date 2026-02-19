@@ -2,6 +2,7 @@
 import React from 'react';
 import { Phone, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { trustBadges } from '../../data/homeData';
 
 const Hero = () => {
@@ -10,10 +11,13 @@ const Hero = () => {
         <div className="absolute inset-0 opacity-40">
            {/* Fallback pattern for HVAC background */}
            <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent z-10"></div>
-           <img 
+           <Image 
             src="/assets/img/hero_bg_1.jpg" 
             alt="Travis working on HVAC" 
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
           />
         </div>
 

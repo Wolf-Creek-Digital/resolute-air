@@ -9,7 +9,9 @@ const Difference = () => {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-20">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">The Resolute Difference</h2>
+            <SectionIcon size={26} />
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+                The Resolute Difference</h2>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">What you'll get that other corporate companies won't give you.</p>
           </div>
 
@@ -17,10 +19,12 @@ const Difference = () => {
             <div className="relative group">
               <div className="absolute -inset-4 bg-orange-100 rounded-3xl -rotate-2 group-hover:rotate-0 transition-transform"></div>
               <div className="relative bg-slate-200 rounded-2xl overflow-hidden aspect-[4/5] shadow-2xl">
-                 <img 
-                  src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=800" 
+                 <Image 
+                  src="/assets/v3/home-v3-differences.avif" 
                   alt="Travis professional HVAC tech" 
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/90 backdrop-blur rounded-xl shadow-lg">
                   <p className="text-orange-600 font-bold mb-1">Owner-Operator</p>

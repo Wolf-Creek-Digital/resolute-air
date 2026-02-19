@@ -10,7 +10,7 @@ const Difference = () => {
   return (
    <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 text-center mb-16">
-          <span className="text-orange-600 font-black uppercase tracking-[0.2em] text-xs">WHY CHOOSE US</span>
+          <span className="text-orange-600 font-black uppercase tracking-[0.2em] text-xs"><SectionIcon size={16} /> WHY CHOOSE US</span>
           <h2 className="text-4xl font-black text-[#001d3d] uppercase tracking-tight mt-2">What Makes Me Different?</h2>
         </div>
 

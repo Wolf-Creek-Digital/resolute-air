@@ -1,5 +1,6 @@
 import { ductTags, springTuneUp, fallTuneUp } from '../../data/servicesData';
 import { Wind, AlertCircle, Wrench } from 'lucide-react';
+import SectionIcon from '../Common/SectionIcon';
 
 const MaintenanceDucts = () => {
     return (
@@ -7,7 +8,7 @@ const MaintenanceDucts = () => {
             <div className="max-w-7xl mx-auto px-4">
                 <div className="text-center mb-16 space-y-4">
                     <span className="text-orange-600 font-black uppercase tracking-[0.2em] text-xs">
-                        MAINTENANCE & DUCTS
+                        <SectionIcon size={20} />MAINTENANCE & DUCTS
                     </span>
                     <h2 className="text-4xl font-black text-[#001d3d] uppercase tracking-tight">
                         Keep Your System Efficient

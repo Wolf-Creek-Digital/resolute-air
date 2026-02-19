@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { ChevronRight } from 'lucide-react';
-
+import SectionIcon from '../Common/SectionIcon';
 import { contactFaqs } from '../../data/contactData';
 
 const FAQ = () => {
@@ -11,7 +11,7 @@ const FAQ = () => {
         <section className="py-24 bg-white">
             <div className="max-w-3xl mx-auto px-4">
                 <div className="text-center mb-16 space-y-4">
-                    <span className="text-orange-600 font-black uppercase tracking-[0.3em] text-xs">ANSWERS</span>
+                   <span className="text-orange-600 font-black uppercase tracking-[0.3em] text-xs"> <SectionIcon size={14} />ANSWERS</span>
                     <h2 className="text-4xl font-black text-[#001d3d] uppercase tracking-tight italic">Frequently Asked Questions</h2>
                 </div>
 

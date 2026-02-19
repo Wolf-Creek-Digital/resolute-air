@@ -1,5 +1,6 @@
 import React from 'react';
-import { Timer } from 'lucide-react';
+import { Timer } from 'lucide-react';import SectionIcon from '../Common/SectionIcon';
+
 
 const EmergencyHero = () => {
     return (
@@ -7,7 +8,7 @@ const EmergencyHero = () => {
             <div className="max-w-7xl mx-auto px-4">
                 <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
                     <span className="text-red-600 font-black uppercase tracking-[0.3em] text-xs flex items-center justify-center gap-3">
-                        <div className="w-10 h-[2px] bg-red-600"></div> 24/7 EMERGENCY SERVICE
+                        <SectionIcon size={20} /><div className="w-10 h-[2px] bg-red-600"></div> 24/7 EMERGENCY SERVICE
                     </span>
                     <h2 className="text-4xl md:text-6xl font-black text-[#001d3d] uppercase tracking-tighter leading-tight italic">
                         Your Furnace or AC <br className="hidden md:block" /> Can't Wait Until Monday

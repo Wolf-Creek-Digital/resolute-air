@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
-
+import SectionIcon from '../Common/SectionIcon';
 import { serviceFaqs } from '../../data/servicesData';
 
 const ServiceFAQ = () => {
@@ -12,7 +12,7 @@ const ServiceFAQ = () => {
             <div className="max-w-4xl mx-auto px-4">
                 <div className="text-center mb-16 space-y-4">
                     <span className="text-orange-600 font-black uppercase tracking-[0.2em] text-xs">
-                        RESOURCES
+                        <SectionIcon size={20} />RESOURCES
                     </span>
                     <h2 className="text-4xl font-black text-[#001d3d] uppercase tracking-tight italic text-balance">
                         Frequently Asked Questions

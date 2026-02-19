@@ -1,12 +1,13 @@
 import React from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
+import SectionIcon from '../Common/SectionIcon';
 
 const ContactInfo = () => {
     return (
         <div className="space-y-12">
             <div className="space-y-4">
                 <span className="text-orange-600 font-black uppercase tracking-[0.3em] text-xs flex items-center gap-3">
-                    <div className="w-10 h-[2px] bg-orange-600"></div> GET IN TOUCH
+                    <SectionIcon size={20} /><div className="w-10 h-[2px] bg-orange-600"></div> GET IN TOUCH
                 </span>
                 <h2 className="text-4xl font-black text-[#001d3d] uppercase tracking-tighter leading-tight italic">
                     How to Reach Us

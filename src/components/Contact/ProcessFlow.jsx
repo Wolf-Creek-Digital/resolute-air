@@ -1,11 +1,12 @@
 import React from 'react';
+import SectionIcon from '../Common/SectionIcon';
 
 const ProcessFlow = () => {
     return (
         <section className="py-24 bg-[#001d3d] text-white">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="text-center mb-20 space-y-4">
-                    <span className="text-orange-500 font-black uppercase tracking-[0.3em] text-xs">FOLLOWING UP</span>
+                    <SectionIcon size={16} /><span className="text-orange-500 font-black uppercase tracking-[0.3em] text-xs">FOLLOWING UP</span>
                     <h2 className="text-4xl font-black uppercase tracking-tight italic">What Happens After You Contact Us?</h2>
                 </div>
 

@@ -1,5 +1,6 @@
 import { heatingProblems, installationInclusions } from '../../data/servicesData';
-import { Flame, ShieldCheck, Check } from 'lucide-react';
+import { Flame, ShieldCheck, Check } from 'lucide-react';import SectionIcon from '../Common/SectionIcon';
+
 
 const HeatingSolutions = () => {
     return (
@@ -42,7 +43,7 @@ const HeatingSolutions = () => {
                 </div>
                 <div className="order-1 lg:order-2 space-y-8">
                     <span className="text-orange-600 font-black uppercase tracking-[0.2em] text-xs">
-                        HEATING SPECIALISTS
+                        <SectionIcon size={20} />HEATING SPECIALISTS
                     </span>
                     <h2 className="text-4xl font-black text-[#001d3d] uppercase tracking-tight">
                         Furnace Installation & Repair

@@ -9,7 +9,7 @@ export const metadata = {
 export default function EmergencyPage() {
   return (
     <main>
-      <BreadCumb Title="Emergency Services" />
+      <BreadCumb Title="24/7 Emergency Services" />
       <Emergency />
     </main>
   );

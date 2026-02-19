@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-
+import SectionIcon from '../Common/SectionIcon';
 import { maintenanceFaqs } from '../../data/emergencyData';
 
 const EmergencyFAQ = () => {
@@ -11,7 +11,7 @@ const EmergencyFAQ = () => {
         <section className="py-24 bg-white">
             <div className="max-w-3xl mx-auto px-4">
                 <div className="text-center mb-16 space-y-4">
-                    <span className="text-orange-600 font-black uppercase tracking-[0.3em] text-xs">FAQ</span>
+                   <span className="text-orange-600 font-black uppercase tracking-[0.3em] text-xs">FAQ</span>
                     <h2 className="text-4xl font-black text-[#001d3d] uppercase tracking-tight italic">Common Questions</h2>
                 </div>
 

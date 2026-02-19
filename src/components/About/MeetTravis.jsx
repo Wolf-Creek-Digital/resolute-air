@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { CheckCircle, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import SectionIcon from "../Common/SectionIcon";
 
 const MeetTravis = () => {
@@ -9,11 +10,13 @@ const MeetTravis = () => {
       <section className="py-24 max-w-7xl mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <div className="relative">
-            <div className="relative z-10 w-[85%] rounded-t-[100px] rounded-b-[100px] overflow-hidden border-[15px] border-white shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=800" 
+            <div className="relative z-10 w-[85%] rounded-t-[100px] rounded-b-[100px] overflow-hidden border-[15px] border-white shadow-2xl aspect-[4/5]">
+              <Image 
+                src="/assets/v3/home-v3-differences.avif" 
                 alt="Travis working on HVAC" 
-                className="w-full h-full object-cover aspect-[4/5]"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
             <div className="absolute top-10 right-0 grid grid-cols-4 gap-2 opacity-30">
@@ -31,7 +34,7 @@ const MeetTravis = () => {
           <div className="space-y-8">
             <div className="space-y-2">
               <span className="text-orange-600 font-black uppercase tracking-[0.2em] text-xs flex items-center gap-2">
-                <div className="w-8 h-[2px] bg-orange-600"></div> ABOUT US
+                <SectionIcon size={20} /><div className="w-8 h-[2px] bg-orange-600"></div> ABOUT US
               </span>
               <h2 className="text-4xl md:text-5xl font-black text-[#001d3d] uppercase tracking-tight leading-tight">
                 Meet Travis Angell: <br/>Your HVAC Expert & Neighbor
@@ -62,8 +65,14 @@ const MeetTravis = () => {
                 CALL NOW <ArrowRight size={20} />
               </button>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-orange-600 p-1">
-                  <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=100" alt="Travis headshot" className="rounded-full object-cover w-full h-full" />
+                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-orange-600 p-1 relative">
+                  <Image 
+                    src="/assets/v3/travis-angel.avif" 
+                    alt="Travis headshot" 
+                    fill
+                    className="rounded-full object-cover" 
+                    sizes="48px"
+                  />
                 </div>
                 <div>
                   <p className="font-black text-[#001d3d] leading-none uppercase tracking-tight">Travis Angell</p>
