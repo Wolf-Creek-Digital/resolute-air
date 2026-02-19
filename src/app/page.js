@@ -1,42 +1,26 @@
-import About from "./Components/Home/About";
-import Blog from "./Components/Home/Blog";
-import Choose from "./Components/Home/Choose";
-import Faq from "./Components/Home/Faq";
-import HomeSlider from "./Components/Home/HomeSlider";
-import Pricing from "./Components/Home/Pricing";
-import Process from "./Components/Home/Process";
-import Services from "./Components/Home/Services";
-import Team from "./Components/Home/Team";
-import Testimonial from "./Components/Home/Testimonial";
+import Difference from "@/components/Home/Difference";
+import Hero from "@/components/Home/Hero";
+import Services from "@/components/Home/Services";
+import Testimonial from "@/components/Home/Testimonial";
+import EmergencyBanner from "@/components/Home/EmergencyBanner";
+import ServiceArea from "@/components/Home/ServiceArea";
+import PreFooter from "@/components/Home/PreFooter";
+
+export const metadata = {
+  title: "Home | Resolute Heating & Air",
+  description: "Home Page for Resolute Heating & Air",
+};
 
 export default function Home() {
   return (
     <main className="home-page">
-        <HomeSlider></HomeSlider>
-        <About
-                Img="/assets/img/about_img_0.jpeg"
-                TitleUp="About us"
-                Title="Where every breath feels fresh and cool"
-                Content="Prompt diagnosis and repair of any issues with your air conditioning unit your ensure optimal performance Inspection of ductwork for leaks or damage air followed by sealing to improve energy efficiency"
-                FeatureList={[
-                    "AirFlow Optimization",
-                    "PureAir Quality Testing",
-                    "FreezeGuard Installation",
-                    "Cool Care Maintenance",
-                    "ClimateControl Checkup",
-                    "ChillOut Emergency Services"
-                ]}
-                NumberContent="Call any time for Freseir services"
-                Number="(+578) 587 89168"
-            ></About>
-            <Services></Services>
-            <Team></Team>
-            <Choose></Choose>
-            <Pricing></Pricing>
-            <Testimonial></Testimonial>
-            <Faq></Faq>
-            <Process></Process>
-            {/* <Blog></Blog> */}
+      <Hero />
+      <Difference />
+      <Services />
+      <Testimonial />
+      <EmergencyBanner />
+      <ServiceArea />
+      <PreFooter />
     </main>
   );
 }

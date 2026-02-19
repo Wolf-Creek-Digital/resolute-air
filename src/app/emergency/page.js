@@ -1,5 +1,5 @@
-import Emergency from '../Components/Emergency/Emergency';
-import BreadCumb from '../Components/Common/BreadCumb';
+import Emergency from '@/components/Emergency/Emergency';
+import BreadCumb from '@/components/Common/BreadCumb';
 
 export const metadata = {
   title: "Emergency Services | Resolute Heating & Air",

@@ -2,8 +2,8 @@ import { Outfit, DM_Sans } from "next/font/google";
 import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "slick-carousel/slick/slick.css";
-import Footer from "./Components/Footer/Footer";
-import Header from "./Components/Header";
+import Footer from "@/components/Footer/Footer";
+import Header from "@/components/Header";
 
 const outfit = Outfit({
   subsets: ['latin'],
