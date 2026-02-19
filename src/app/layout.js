@@ -17,16 +17,47 @@ const dm_Sans = DM_Sans({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://resoluteair.com'), // Replace with actual domain
   title: {
-    absolute: '',
-    default: 'Resolute - Heating & Air',
-    template: '%s | Resolute - Heating & Air',
+    default: 'Resolute Heating & Air | HVAC Expert in Utah',
+    template: '%s | Resolute Heating & Air',
   },
-  description: 'Resolute - Heating & Air',
+  description: 'Expert AC repair, furnace installation, and HVAC services in Salt Lake County. Travis Angell provides honest, owner-operated service you can trust.',
+  keywords: ['HVAC Utah', 'AC Repair Salt Lake City', 'Furnace Installation West Jordan', 'Heating and Air', 'Travis Angell', 'Resolute Air'],
+  authors: [{ name: 'Travis Angell' }],
+  creator: 'Resolute Heating & Air',
   openGraph: {
-    title: 'Resolute - Heating & Air',
-    description: 'Resolute - Heating & Air',
-    images: ['/openGraphImage.jpg'],
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://resoluteair.com',
+    title: 'Resolute Heating & Air | Honest HVAC Service',
+    description: 'Stop overpaying for HVAC. Honest repairs, no commissions, and expert service from Travis Angell. Serving Salt Lake County.',
+    siteName: 'Resolute Heating & Air',
+    images: [
+      {
+        url: '/assets/img/og-image.jpg', // Ensure this image exists or use a generic one
+        width: 1200,
+        height: 630,
+        alt: 'Resolute Heating & Air Service Truck',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Resolute Heating & Air | HVAC Expert in Utah',
+    description: 'Honest AC & Heating services in Salt Lake County. Owner-operated.',
+    images: ['/assets/img/og-image.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 

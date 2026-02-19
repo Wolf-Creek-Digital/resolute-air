@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 import SectionIcon from "../Common/SectionIcon";
 
-const About3 = () => {
+const About = () => {
     const diffItems = [
         {
             title: "I Answer My Own Phone",
@@ -540,4 +540,4 @@ const About3 = () => {
     );
 };
 
-export default About3;
+export default About;

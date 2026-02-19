@@ -3,8 +3,8 @@ import BreadCumb from '@/components/Common/BreadCumb';
 import Contact from '@/components/Contact/Contact';
 
 export const metadata = {
-    title: "Contact | Resolute Heating & Air",
-    description: "Contact Page for Resolute Heating & Air",
+  title: "Contact Us",
+  description: "Schedule your HVAC service today. Call 801-970-5797 for direct access to Travis Angell. No call centers, just honest help.",
 };
 
 const page = () => {

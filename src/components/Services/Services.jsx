@@ -29,7 +29,7 @@ import {
 } from "lucide-react";
 import SectionIcon from "../Common/SectionIcon";
 
-const Services3 = () => {
+const Services = () => {
     const [activeFaq, setActiveFaq] = useState(null);
     const [billingCycle, setBillingCycle] = useState("monthly"); // 'monthly' or 'yearly'
 
@@ -1251,4 +1251,4 @@ const Services3 = () => {
     );
 };
 
-export default Services3;
+export default Services;

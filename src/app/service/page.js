@@ -2,8 +2,8 @@ import Services from '@/components/Services/Services';
 import BreadCumb from '@/components/Common/BreadCumb';
 
 export const metadata = {
-  title: "Services | Resolute Heating & Air",
-  description: "Services Page for Resolute Heating & Air",
+  title: "AC & Furnace Services",
+  description: "Comprehensive HVAC services: AC repair, furnace installation, ductwork, and seasonal maintenance. Fast response in Salt Lake & Utah Counties.",
 };
 
 export default function ServicesPage() {

@@ -8,7 +8,10 @@ import PreFooter from "@/components/Home/PreFooter";
 
 export const metadata = {
   title: "Home | Resolute Heating & Air",
-  description: "Home Page for Resolute Heating & Air",
+  description: "Reliable AC repair and furnace installation in Salt Lake County. Direct access to the owner, honest pricing, and 15+ years of experience.",
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export default function Home() {
