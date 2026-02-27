@@ -44,7 +44,7 @@ const EmergencyMaintenance = () => {
                                     <p className="text-xs font-black text-[#001d3d] uppercase tracking-tight flex items-center gap-2"><Check size={14} className="text-orange-600" /> 2 Tune-ups Yearly</p>
                                     <p className="text-xs font-black text-[#001d3d] uppercase tracking-tight flex items-center gap-2"><Check size={14} className="text-orange-600" /> Priority Response</p>
                                 </div>
-                                <button className="bg-[#001d3d] text-white px-8 py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest group-hover:bg-orange-600 transition-colors">ENROLL NOW</button>
+                                <a href="tel:8019705797" className="bg-[#001d3d] text-white px-8 py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest group-hover:bg-orange-600 transition-colors block text-center mt-6">CALL NOW</a>
                             </div>
 
                             <div className="flex flex-col md:flex-row items-center gap-8 bg-[#001d3d] p-8 rounded-[2rem] text-white relative group transition-all transform hover:scale-[1.02]">
@@ -58,7 +58,7 @@ const EmergencyMaintenance = () => {
                                     <p className="text-xs font-black uppercase tracking-tight flex items-center gap-2"><Check size={14} className="text-orange-500" /> 4 Tune-ups Yearly</p>
                                     <p className="text-xs font-black uppercase tracking-tight flex items-center gap-2"><Check size={14} className="text-orange-500" /> VIP Support</p>
                                 </div>
-                                <button className="bg-white text-[#001d3d] px-8 py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-orange-600 hover:text-white transition-colors">ENROLL NOW</button>
+                                <a href="tel:8019705797" className="bg-white text-[#001d3d] px-8 py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-orange-600 hover:text-white transition-colors block text-center mt-6">CALL NOW</a>
                             </div>
                         </div>
                         <div className="mt-10 text-center">

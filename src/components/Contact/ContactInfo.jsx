@@ -50,7 +50,7 @@ const ContactInfo = () => {
                 </div>
             </div>
 
-            <div className="bg-[#001d3d] p-8 rounded-[40px] text-white shadow-2xl relative overflow-hidden">
+            {/* <div className="bg-[#001d3d] p-8 rounded-[40px] text-white shadow-2xl relative overflow-hidden">
                 <h4 className="text-lg font-black uppercase tracking-widest mb-6 italic border-b border-white/10 pb-4">Operating Hours</h4>
                 <div className="space-y-4 text-sm font-bold uppercase tracking-tight">
                     <div className="flex justify-between border-b border-white/5 pb-2">
@@ -66,7 +66,7 @@ const ContactInfo = () => {
                         <span>By Appt (Fees apply)</span>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };

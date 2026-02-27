@@ -29,7 +29,7 @@ const PreFooter = () => {
               </p>
               <div className="flex flex-col md:flex-row gap-4">
                 <a href="tel:8019705797" className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg shadow-orange-600/20 uppercase tracking-widest text-sm text-decoration-none d-inline-block hover-scale">
-                  Schedule Service Now
+                  Call Now
                 </a>
               </div>
               <p className="text-2xl font-black text-white mt-4">801-970-5797</p>

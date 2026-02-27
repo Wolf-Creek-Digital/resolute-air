@@ -11,9 +11,9 @@ const Cta = () => {
              Ready to Work with an HVAC <br/> Contractor You Can Trust?
            </h2>
            <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-              <button className="bg-orange-600 text-white px-12 py-5 rounded-lg font-black uppercase tracking-[0.2em] shadow-2xl shadow-orange-600/30 hover:bg-[#001d3d] transition-all">
-                Schedule Service with Travis
-              </button>
+              <a href="tel:8019705797" className="bg-orange-600 text-white px-12 py-5 rounded-lg font-black uppercase tracking-[0.2em] shadow-2xl shadow-orange-600/30 hover:bg-[#001d3d] transition-all inline-block text-center">
+                Call Now
+              </a>
               <div className="flex items-center gap-4 group cursor-pointer">
                 <div className="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-all shadow-xl">
                   <Phone size={24} fill="currentColor" />

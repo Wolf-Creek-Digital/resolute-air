@@ -27,14 +27,14 @@ export const servicesData = [
     title: "Seasonal Tune-Up",
     desc: "Prevent breakdowns and lower energy bills. Our maintenance catches small problems before they become expensive.",
     icon: <Wrench size={40} className="text-blue-700" color="#1d4ed8" />,
-    cta: "Schedule Your Tune-Up",
+    cta: "Call to Schedule",
     phone: "801-970-5797"
   },
   {
     title: "Strange Noises?",
     desc: "Banging, grinding, or squealing sounds? We'll diagnose and fix it before it becomes a total system failure.",
     icon: <Volume2 size={40} className="text-amber-600" color="#d97706" />,
-    cta: "Schedule a Diagnostic",
+    cta: "Call for a Diagnostic",
     phone: "801-970-5797"
   }
 ];

@@ -31,9 +31,9 @@ const ServiceCTA = () => {
                         Salt Lake homes.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center items-center gap-8 pt-6">
-                        <button className="bg-orange-600 text-white px-12 py-6 rounded-lg font-black uppercase tracking-[0.2em] shadow-2xl shadow-orange-600/40 hover:bg-white hover:text-orange-600 transition-all text-xs">
-                            Schedule Service Now
-                        </button>
+                        <a href="tel:8019705797" className="bg-orange-600 text-white px-12 py-6 rounded-lg font-black uppercase tracking-[0.2em] shadow-2xl shadow-orange-600/40 hover:bg-white hover:text-orange-600 transition-all text-xs inline-block text-center mt-2">
+                            Call Now
+                        </a>
                         <div className="flex items-center gap-5 group cursor-pointer">
                             <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-all shadow-xl">
                                 <Phone size={28} fill="currentColor" />

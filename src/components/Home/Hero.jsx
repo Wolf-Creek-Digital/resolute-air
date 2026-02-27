@@ -38,9 +38,9 @@ const Hero = () => {
                 <Phone fill="white" /> Get Fast Service Now
                 <ChevronRight className="group-hover:translate-x-1 transition-transform" />
               </a>
-              <button className="flex items-center justify-center gap-3 bg-white hover:bg-slate-100 text-slate-900 text-lg font-bold px-8 py-5 rounded-xl transition-all shadow-xl">
-                Schedule Online
-              </button>
+              <a href="tel:8019705797" className="flex items-center justify-center gap-3 bg-white hover:bg-slate-100 text-slate-900 text-lg font-bold px-8 py-5 rounded-xl transition-all shadow-xl">
+                Call to Schedule
+              </a>
             </div>
           </div>
           

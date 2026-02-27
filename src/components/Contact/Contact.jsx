@@ -1,14 +1,14 @@
 "use client";
-import React from 'react';
-import { Phone } from 'lucide-react';
-import ContactInfo from './ContactInfo';
-import ContactForm from './ContactForm';
-import ProcessFlow from './ProcessFlow';
-import ServiceArea from './ServiceArea';
-import Comparison from './Comparison';
-import ReviewSpotlight from './ReviewSpotlight';
-import FAQ from './FAQ';
-import ContactMap from './Map';
+import React from "react";
+import { Phone } from "lucide-react";
+import ContactInfo from "./ContactInfo";
+import ContactForm from "./ContactForm";
+import ProcessFlow from "./ProcessFlow";
+import ServiceArea from "./ServiceArea";
+import Comparison from "./Comparison";
+import ReviewSpotlight from "./ReviewSpotlight";
+import FAQ from "./FAQ";
+import ContactMap from "./Map";
 
 const Contact = () => {
     return (
@@ -24,7 +24,27 @@ const Contact = () => {
 
                         {/* Right Column: Form */}
                         <div className="lg:col-span-7">
-                            <ContactForm />
+                            {/* <ContactForm /> */}
+
+                            <div className="bg-[#001d3d] p-8 rounded-[40px] text-white shadow-2xl relative overflow-hidden">
+                                <h4 className="text-lg font-black uppercase tracking-widest mb-6 italic border-b border-white/10 pb-4">
+                                    Operating Hours
+                                </h4>
+                                <div className="space-y-4 text-sm font-bold uppercase tracking-tight">
+                                    <div className="flex justify-between border-b border-white/5 pb-2">
+                                        <span className="text-slate-400">Emergency Service:</span>
+                                        <span className="text-orange-500 italic">24/7/365</span>
+                                    </div>
+                                    <div className="flex justify-between border-b border-white/5 pb-2">
+                                        <span className="text-slate-400">Regular Business:</span>
+                                        <span>Mon-Fri 8am-6pm</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                        <span className="text-slate-400">Weekends:</span>
+                                        <span>By Appt (Fees apply)</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -52,16 +72,20 @@ const Contact = () => {
                         Ready to Schedule <br /> Honest HVAC Service?
                     </h2>
                     <div className="flex flex-col sm:flex-row justify-center items-center gap-8 pt-6">
-                        <button className="bg-[#001d3d] text-white px-12 py-6 rounded-2xl font-black uppercase tracking-[0.2em] shadow-2xl hover:bg-white hover:text-orange-600 transition-all text-xs">
-                            Schedule Now
-                        </button>
+                        <a href="tel:8019705797" className="bg-[#001d3d] text-white px-12 py-6 rounded-2xl font-black uppercase tracking-[0.2em] shadow-2xl hover:bg-white hover:text-orange-600 transition-all text-xs inline-block text-center mt-2">
+                            Call Now
+                        </a>
                         <div className="flex items-center gap-5 group cursor-pointer text-white">
                             <div className="w-16 h-16 bg-white/20 border border-white/30 rounded-full flex items-center justify-center text-white group-hover:bg-white group-hover:text-orange-600 transition-all shadow-xl">
                                 <Phone size={28} fill="currentColor" />
                             </div>
                             <div className="text-left leading-none">
-                                <p className="text-[10px] font-black uppercase text-white/60 tracking-[0.3em] mb-2 italic">Direct Call or Text</p>
-                                <p className="text-3xl font-black text-white italic tracking-tighter">801-970-5797</p>
+                                <p className="text-[10px] font-black uppercase text-white/60 tracking-[0.3em] mb-2 italic">
+                                    Direct Call or Text
+                                </p>
+                                <p className="text-3xl font-black text-white italic tracking-tighter">
+                                    801-970-5797
+                                </p>
                             </div>
                         </div>
                     </div>
