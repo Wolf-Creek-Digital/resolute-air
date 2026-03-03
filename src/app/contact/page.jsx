@@ -1,6 +1,11 @@
 import React from 'react';
-import BreadCumb from '../Components/Common/BreadCumb';
-import Contact from '../Components/Contact/Contact';
+import BreadCumb from '@/components/Common/BreadCumb';
+import Contact from '@/components/Contact/Contact';
+
+export const metadata = {
+  title: "Contact Us",
+  description: "Schedule your HVAC service today. Call 801-970-5797 for direct access to Travis Angell. No call centers, just honest help.",
+};
 
 const page = () => {
     return (

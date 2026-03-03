@@ -1,0 +1,43 @@
+"use client";
+import React, { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
+import SectionIcon from '../Common/SectionIcon';
+import { maintenanceFaqs } from '../../data/emergencyData';
+
+const EmergencyFAQ = () => {
+    const [activeFaq, setActiveFaq] = useState(null);
+
+    return (
+        <section className="py-24 bg-white">
+            <div className="max-w-3xl mx-auto px-4">
+                <div className="text-center mb-16 space-y-4">
+                   <span className="text-orange-600 font-black uppercase tracking-[0.3em] text-xs">FAQ</span>
+                    <h2 className="text-4xl font-black text-[#001d3d] uppercase tracking-tight italic">Common Questions</h2>
+                </div>
+
+                <div className="space-y-4">
+                    {maintenanceFaqs.map((faq, i) => (
+                        <div key={i} className="bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 group">
+                            <button
+                                onClick={() => setActiveFaq(activeFaq === i ? null : i)}
+                                className="w-full flex justify-between items-center p-8 text-left transition-all hover:bg-white"
+                            >
+                                <span className="font-black text-[#001d3d] uppercase tracking-tight text-sm">{faq.q}</span>
+                                <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 ${activeFaq === i ? 'bg-orange-600 text-white rotate-180' : 'bg-white text-[#001d3d] shadow-sm'}`}>
+                                    <ChevronDown size={20} />
+                                </div>
+                            </button>
+                            <div className={`overflow-hidden transition-all duration-500 ease-in-out ${activeFaq === i ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                                <div className="p-8 pt-0 text-slate-500 font-bold text-xs border-t border-slate-200/50 leading-relaxed uppercase tracking-tight">
+                                    {faq.a}
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default EmergencyFAQ;
