@@ -8,9 +8,9 @@ export const metadata = {
 
 export default function ServicesPage() {
   return (
-    <main className="services-page">
+    <div className="services-page">
         <BreadCumb Title="Services"></BreadCumb>
       <Services />
-    </main>
+    </div>
   );
 }

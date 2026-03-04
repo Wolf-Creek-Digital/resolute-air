@@ -15,7 +15,7 @@ const MaintenanceDucts = () => {
                     </h2>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     {/* Ductwork */}
                     <div className="bg-white p-10 rounded-[40px] shadow-sm border border-slate-100">
                         <div className="flex items-center gap-4 mb-8">
