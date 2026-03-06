@@ -66,6 +66,19 @@ export default function RootLayout({ children }) {
       <head>
         <meta name="author" content="Resolute Heating & Air" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        {/* WCD Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3BWZ3P8XD"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-Q3BWZ3P8XD');
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -111,7 +124,7 @@ export default function RootLayout({ children }) {
                   "opens": "08:00",
                   "closes": "18:00"
                 },
-                 {
+                {
                   "@type": "OpeningHoursSpecification",
                   "dayOfWeek": [
                     "Saturday",
